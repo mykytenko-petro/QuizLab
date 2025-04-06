@@ -1,9 +1,11 @@
-{% extends "../../Project/templates/base.html" %}
+{% extends "base.html" %}
 
 {% block title %} home {% endblock %}
 
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='/css/style.css') }}">
+{% endblock %}
+<!-- <link rel="stylesheet" type="text/css" href="/static/site.css" /> -->
 {% block content %}
-
-<p>2232</p>
-
+    <h1>2232</h1>
 {% endblock %}

@@ -1,1 +1,2 @@
-from .settings import *
+from .settings import project
+from .urls import *

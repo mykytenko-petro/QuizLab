@@ -1,7 +1,11 @@
-from flask import Flask, render_template 
+import flask
+import home_app
 
-app = Flask(__name__) 
+project = flask.Flask(
+    import_name = "Project",
+    static_url_path = "/static/",
+    static_folder = "static",
+    template_folder = "templates"
+)
 
-@app.route('/') 
-def home(): 
-    return render_template('../home_app/templates/home.html')
+project.register_blueprint(blueprint = home_app.homeApp)
