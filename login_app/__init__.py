@@ -1,2 +1,2 @@
-from .app import authorizationApp
+from .app import loginApp
 # from .views import render_login
