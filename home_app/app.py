@@ -1,9 +1,10 @@
 import flask
 
+#Створена для того, щоб організувати код застосунку home_app.
 homeApp = flask.Blueprint(
     name = "home",
-    import_name = "app",
-    template_folder = "home_app/templates",
-    static_url_path = "/home/",
-    static_folder = "home_app/static",
+    import_name = "home_app",
+    template_folder = "templates",
+    static_url_path = "/home_app/static",
+    static_folder = "static",
 )

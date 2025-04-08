@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %} home {% endblock %}
+{% block title %} <title> home </title> {% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{{ url_for('home.static', filename='/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">
+    
 {% endblock %}
-<!-- <link rel="stylesheet" type="text/css" href="/static/site.css" /> -->
+
 {% block content %}
     <h1>2232</h1>
+    <a href="/create_quiz">create_quiz</a>
 {% endblock %}
