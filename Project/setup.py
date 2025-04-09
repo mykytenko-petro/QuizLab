@@ -6,5 +6,5 @@ from .settings import project
 
 project.register_blueprint(home_app.homeApp)
 project.register_blueprint(create_quiz_app.createQuizApp)
-# project.register_blueprint(login_app.authorizationApp)
-# project.register_blueprint(registration_app.registrationApp)
+project.register_blueprint(login_app.loginApp)
+project.register_blueprint(registration_app.registrationApp)
