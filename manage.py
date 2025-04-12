@@ -1,13 +1,15 @@
-#Імпортування проєкту
 import Project
 
-#Створення функції main
 def main():
     try:
-        Project.project.run(debug = True)
+        print("path:", Project.settings.path)
+        Project.project.run(
+            debug = True,
+            port = 2232
+        )
+
     except Exception as error:
         print(error)
 
-#Запуск функції
 if __name__ == '__main__':
     main()

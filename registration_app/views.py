@@ -1,8 +1,9 @@
 import flask
 from Project.settings import DATABASE
+from registration_app.core import login
 from .models import User
 
-def render_registration():
+async def render_registration():
     if flask.request.method == 'POST':
         if flask.request.form["password"] == flask.request.form["password_confirm"]:
             user = User(
@@ -15,9 +16,15 @@ def render_registration():
             try:
                 DATABASE.session.add(user)
                 DATABASE.session.commit()
-                return flask.redirect("/registration2")
+                login()
                 
             except Exception as error:
                 return str(error)
         
-    return flask.render_template(template_name_or_list= "registration.html")
+    return flask.render_template("registration.html")
+
+async def render_login():
+    if flask.request.method == "POST":
+        login()
+    
+    return flask.render_template("login.html")
