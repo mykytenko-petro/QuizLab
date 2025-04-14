@@ -2,7 +2,6 @@ import Project
 
 def main():
     try:
-        print("path:", Project.settings.path)
         Project.project.run(
             debug = True,
             port = 2232
