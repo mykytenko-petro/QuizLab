@@ -2,6 +2,8 @@ import flask
 import flask_migrate
 import flask_sqlalchemy
 import os
+import home_app
+import registration_app
 
 #Створення змінної project
 project = flask.Flask(
@@ -35,5 +37,8 @@ DATABASE = flask_sqlalchemy.SQLAlchemy(app = project)
 migrate = flask_migrate.Migrate(
    app= project,
    db= DATABASE,
-   directory = os.path.abspath(os.path.join(__file__, "..", "migrations"))
+   directory= os.path.abspath(os.path.join(__file__, "..", "migrations"))
 )
+
+project.register_blueprint(home_app.homeApp)
+project.register_blueprint(registration_app.registrationApp)

@@ -1,3 +1,4 @@
+from .manifest import build
 from .urls import *
-from .setup import *
 from .settings import project
+from .login_manager import *

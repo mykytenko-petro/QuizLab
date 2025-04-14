@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-
+    registration
 {% endblock %}
 
 {% block header %}
@@ -10,17 +10,18 @@
 
 {% block content %}
     <form method="post">
-
+        <p class = "login">Login</p>
         <input type="text" required name = "name" class = name>
+
+        <p class = "email">Email</p>
         <input type="email" required name="email">
+
+        <p class = "password">Password</p>
         <input type="password" required name="password">
+
+        <p class = "password">Password_confirm</p>
         <input type="password" required name="password_confirm">
+
         <button>SEND</button>
     </form>
-
-    <p class = "login">Login</p>
-    <p class = "email">Email</p>
-    <p class = "password">Password</p>
-    <p class = "password">Password_confirm</p>
-    
 {% endblock %}

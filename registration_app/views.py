@@ -28,3 +28,4 @@ async def render_login():
         login()
     
     return flask.render_template("login.html")
+
