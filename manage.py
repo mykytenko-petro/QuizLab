@@ -8,6 +8,6 @@ def main():
     except Exception as error:
         print(error)
 
-#Запуск функції
+#Перевіряє що саме цей файл було запущено
 if __name__ == '__main__':
     main()
