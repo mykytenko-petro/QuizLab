@@ -1,7 +1,7 @@
 #Імпортування проєкту
 import Project
 
-#Створення функції main
+#Створення функції main, що запускає проект
 def main():
     try:
         Project.project.run(debug = True)

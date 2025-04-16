@@ -1,5 +1,7 @@
 import flask
 
+
+#Ця строка створює застосунок createQuizApp
 createQuizApp = flask.Blueprint(
     name = "create_quiz",
     import_name = "create_quiz_app",
