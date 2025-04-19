@@ -2,7 +2,7 @@ import subprocess
 
 def build():
     commands_list = [
-        "flask --app Project db init",
+       "flask --app Project db init",
         "flask --app Project db migrate",
         "flask --app Project db upgrade"
     ]
