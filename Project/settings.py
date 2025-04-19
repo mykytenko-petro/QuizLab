@@ -4,6 +4,7 @@ import flask_sqlalchemy
 import os
 import home_app
 import registration_app
+import create_quiz_app
 
 #Створення змінної project
 project = flask.Flask(
@@ -42,3 +43,4 @@ migrate = flask_migrate.Migrate(
 
 project.register_blueprint(home_app.homeApp)
 project.register_blueprint(registration_app.registrationApp)
+project.register_blueprint(create_quiz_app.createQuizApp)

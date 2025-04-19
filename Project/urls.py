@@ -1,6 +1,8 @@
 import home_app
 import registration_app
+import create_quiz_app
 from .settings import project
+
 
 project.add_url_rule(
     rule = '/',
@@ -10,6 +12,10 @@ project.add_url_rule(
     rule = '/registration',
     view_func = registration_app.render_registration,
     methods = ['GET','POST']
+)
+project.add_url_rule(
+    rule = "/create_quiz",
+    view_func = create_quiz_app.render_create_quiz
 )
 # project.add_url_rule(
 #     rule = '/login',
