@@ -2,7 +2,7 @@ import Project
 
 def main():
     try:
-        Project.build()
+        Project.assemble()
         Project.project.run(
             debug = True,
             port = 2232

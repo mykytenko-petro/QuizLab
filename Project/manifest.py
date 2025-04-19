@@ -1,11 +1,8 @@
-import subprocess
+import os
 
-def build():
-    commands_list = [
-        "flask --app Project db init",
-        "flask --app Project db migrate",
-        "flask --app Project db upgrade"
-    ]
-
-    for command in commands_list:
-        subprocess.call(args = command.split(" "))
+def assemble():
+    if not os.path.exists(os.path.abspath(os.path.join(__file__, '..', "migrations"))):
+        os.system(os.environ["DB_INIT"])
+    
+    os.system(os.environ["DB_MIGRATE"])
+    os.system(os.environ["DB_UPGRADE"])
