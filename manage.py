@@ -1,13 +1,15 @@
-#Імпортування проєкту
 import Project
 
-#Створення функції main, що запускає проект
 def main():
     try:
-        Project.project.run(debug = True)
+        Project.assemble()
+        Project.project.run(
+            debug = True,
+            port = 2232
+        )
+
     except Exception as error:
         print(error)
 
-#Перевіряє що саме цей файл було запущено
 if __name__ == '__main__':
     main()

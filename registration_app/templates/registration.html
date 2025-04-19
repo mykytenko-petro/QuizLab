@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    registration
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}">
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <p class = "login">Login</p>
+        <input type="text" required name = "name" class = name>
+
+        <p class = "email">Email</p>
+        <input type="email" required name="email">
+
+        <p class = "password">Password</p>
+        <input type="password" required name="password">
+
+        <p class = "password">Password_confirm</p>
+        <input type="password" required name="password_confirm">
+
+        <button>SEND</button>
+    </form>
+{% endblock %}
