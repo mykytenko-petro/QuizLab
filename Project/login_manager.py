@@ -1,18 +1,11 @@
-# import flask_login
-# from .settings import registration_app
-# from registration_app.models import User
-# from flask_login import LoginManager
+import flask_login
+from .settings import project
+from .loadenv import SECRET_KEY
+from registration_app.models import User
 
-# registration_app.secret_key = "SECRET_KEY123"
-# login_manager = flask_login.LoginManager(app = registration_app)
+project.secret_key = SECRET_KEY
+login_maneger = flask_login.LoginManager(app = project)
 
-# @login_manager.user_loader
-# def load_user(id):
-#     return User.query.get(id)
-# #app = registration_app
-# #app.secret_key = 'xxxxyyyyyzzzzz'
-# #
-# #login_manager = LoginManager()
-# #login_manager.init_app(app)
-# #login_manager.login_view = 'login'
-
+@login_maneger.user_loader
+def load_user(id):
+    return User.query.get(id)
