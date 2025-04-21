@@ -9,3 +9,6 @@ def login():
             flask_login.login_user(user)
             print("sucsessfully login user:", flask.request.form["name"])
             return flask.redirect("/")
+        else:
+            print("failed to login")
+            return flask.redirect("/login")
