@@ -1,3 +1,30 @@
 h1{
     color: red;
 }
+
+.header-links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 70px;
+    width: 100vw;
+    height: 100px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+a{
+    width: 155px;
+    height: 49px;
+    font-family: 'Estedad-VF';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 56px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

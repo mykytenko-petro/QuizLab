@@ -1,5 +1,26 @@
-div.header{
-    background-color: DodgerBlue;
-    height: 60px;
-    width: 100%;
+.header{
+    position: absolute;
+    width: 100vw;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+    background: #4E54C8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 23px 47px;
+}
+
+p{
+    position: absolute;
+    width: 128px;
+    height: 49px;
+    left: 47px;
+    top: 23px;
+    font-family: 'Estedad-VF';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 56px;
+    color: #FFFFFF;
 }

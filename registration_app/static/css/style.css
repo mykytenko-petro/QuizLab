@@ -1,0 +1,73 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+}
+
+.reg {
+    width: 800px;
+    height: 730px;
+    background: #fff;
+    border: 5px solid #000;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 60px; 
+    gap: 20px; 
+}
+
+.registration{
+    width: 396px;
+    height: 84px;
+    font-family: 'Estedad-VF';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 84px;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    text-align: center;
+}
+
+input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 30px;
+    gap: 10px;
+    width: 500px;
+    height: 50px;
+    background: #D9D9D9;
+    border-radius: 5px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    gap: 10px;
+    width: 250px;
+    height: 100px;
+    background: #4E54C8;
+    border-radius: 20px;
+    flex: none;
+    order: 5;
+    flex-grow: 0;
+}
