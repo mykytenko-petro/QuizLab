@@ -1,7 +1,7 @@
-import flask_login
 from Project.settings import DATABASE
+from flask_login import UserMixin
 
-class User(DATABASE.Model, flask_login.UserMixin):
+class User(DATABASE.Model, UserMixin):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)
     login = DATABASE.Column(DATABASE.String(50), nullable = False)
     email = DATABASE.Column(DATABASE.String(256), nullable = False)

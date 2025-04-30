@@ -39,6 +39,3 @@ migrate = flask_migrate.Migrate(
    db= DATABASE,
    directory= os.path.abspath(os.path.join(__file__, "..", "migrations"))
 )
-
-project.register_blueprint(home_app.homeApp)
-project.register_blueprint(registration_app.registrationApp)

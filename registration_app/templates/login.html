@@ -3,13 +3,18 @@
 {% block title %} Login {% endblock %}
 
 {% block content %} 
-    <form method="post">
-        <p class = "login">Login</p>
-        <input type="text" required name = "name" class = name>
+    <h1>Login</h1>
 
-        <p class = "password">Password</p>
-        <input type="password" required name="password">
+    <div class="login">
+        <h2>login</h2>
+        <form action="" method="post">
+            <p class = "login">Login</p>
+            <input type="text" required name = "name" class = name>
 
-        <button>SEND</button>
-    </form>
+            <p class = "password">Password</p>
+            <input type="password" required name="password">
+
+            <button>SEND</button>
+        </form>
+    </div>
 {% endblock %}

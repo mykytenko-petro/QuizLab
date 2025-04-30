@@ -9,16 +9,24 @@
 </head>
 <body>
     <header>
-        <div class="header">
-        </div>
+        {% block header %}
+            <nav>
+                <a href="/">Home</a>
+                {% if is_authenticated %}
+                    <p>{{ login }}</p>
+                    <a href="/logout">logout</a>
+                {% else %}
+                    <a href="/registration">registration</a>
+                    <a href="/login">login</a>
+                {% endif %}
+            </nav>
+        {% endblock %}
     </header>
 
     {% block content %}{% endblock %}
 
-    <footer>
-        <div>
-            
-        </div>
-    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/getName.js') }}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>
