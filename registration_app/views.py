@@ -19,7 +19,7 @@ async def render_registration():
             try:
                 DATABASE.session.add(user)
                 DATABASE.session.commit()
-                login()
+                return login()
                 
             except Exception as error:
                 return str(error)
@@ -28,7 +28,7 @@ async def render_registration():
 
 async def render_login():
     if flask.request.method == "POST":
-        login()
+        return login()
     
     return flask.render_template("login.html")
 
