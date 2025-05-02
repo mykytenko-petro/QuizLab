@@ -1,2 +1,2 @@
-from .app import registrationApp
+from .apps import registrationApp, loginApp
 from .views import *
