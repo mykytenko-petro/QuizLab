@@ -1,2 +1,2 @@
-from .app import registrationApp
-from .views import render_login, render_registration
+from .apps import registrationApp, loginApp
+from .views import *

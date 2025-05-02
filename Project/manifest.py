@@ -1,11 +1,15 @@
-import subprocess
+import os
+import dotenv
 
-def build():
-    commands_list = [
-       "flask --app Project db init",
-        "flask --app Project db migrate",
-        "flask --app Project db upgrade"
-    ]
+DOTENV_PATH = os.path.abspath(os.path.join(__file__, "..", "..", ".env"))
+MIGRATIONS_PATH = os.path.abspath(os.path.join(__file__, '..', "migrations"))
 
-    for command in commands_list:
-        subprocess.call(args = command.split(" "))
+def assemble():
+    if os.path.exists(path= DOTENV_PATH):
+        dotenv.load_dotenv(dotenv_path= DOTENV_PATH)
+
+    if not os.path.exists(path= MIGRATIONS_PATH):
+        os.system(os.environ["DB_INIT"])
+    
+    os.system(os.environ["DB_MIGRATE"])
+    os.system(os.environ["DB_UPGRADE"])

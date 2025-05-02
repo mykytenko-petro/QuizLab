@@ -1,6 +1,7 @@
 import flask
 
-
 #Функція що відображає сторінку  home
-async def render_home():
-    return flask.render_template("home.html")
+def render_home():
+    return flask.render_template(
+        template_name_or_list= "home.html"
+    )
