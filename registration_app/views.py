@@ -1,9 +1,11 @@
 import flask
-from Project.settings import DATABASE
-from .models import User
 import flask_login
 import flask_session
+from Project.settings import DATABASE
+from .models import User
+from Project.core import toggle
 
+@toggle(name_of_bp="registrationApp")
 def render_registration():
     message = ''
     if flask.request.method == 'POST':
@@ -42,23 +44,23 @@ def render_registration():
         message= message
     )
 
+@toggle(name_of_bp="loginApp")
 def render_login():
     if flask.request.method == "POST":
         email_form = flask.request.form["email"]
         password_form = flask.request.form["password"]
-        list_users = User.query.all()
 
+        list_users = User.query.all()
         for user in list_users:
-            print(user.email, user.password)
             if user.email == email_form and user.password == password_form:
                 flask_login.login_user(user)
     
     if not flask_login.current_user.is_authenticated:
-        print("error")
+
         return flask.render_template(template_name_or_list = "login.html")
     else:
         return flask.redirect('/')
     
 def render_logout():
-    DATABASE.session.close()
+    flask.session.clear()
     return flask.redirect('/')
