@@ -12,36 +12,36 @@ def render_registration():
         password = flask.request.form["password"]
         confirm_password = flask.request.form["password_confirm"]
 
-        # is_email_found = 
+        list_users = User.query.all()
+        for user in list_users:
+            if user.email == flask.request.form["email"]:
+                message = "Така почта вже існує"
 
-        # list_users = User.query.all()
-        # for user in list_users:
-        #     if user.email == flask.request.form["email"]:
+        if message == "":   
+            if password == confirm_password:
+                user = User(
+                    login = flask.request.form['name'], 
+                    password = password, 
+                    email = flask.request.form["email"], 
+                    is_admin = False
+                )
+        
+                try:
+                    DATABASE.session.add(user)
+                    DATABASE.session.commit()
 
-        if password == confirm_password:
-            user = User(
-                login = flask.request.form['name'], 
-                password = password, 
-                email = flask.request.form["email"], 
-                is_admin = False
-            )
+                    message = 'Успішна реєстрація'
+                    
+                    return render_login()
 
-            try:
-                DATABASE.session.add(user)
-                DATABASE.session.commit()
-
-                message = 'Успішна реєстрація'
-                
-                return render_login()
-
-            except Exception as error:
-                return str(error)
-        else:
-            message = 'Паролі не співпадають'
+                except Exception as error:
+                    return str(error)
+            else:
+                message = 'Паролі не співпадають'
         
     return flask.render_template(
         template_name_or_list= "registration.html",
-        message= message
+        message = message
     )
 
 @toggle(name_of_bp="loginApp")
