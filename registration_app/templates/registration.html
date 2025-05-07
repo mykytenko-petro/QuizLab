@@ -4,8 +4,8 @@
     registration
 {% endblock %}
 
-{% block header %}
-    <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}">
+{% block links %}
+    <!-- <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}"> -->
 {% endblock %}
 
 {% block content %}
@@ -16,11 +16,8 @@
         <p class = "email">Email</p>
         <input type="email" required name="email">
 
-        <p class = "email">Email_confirm</p>
-        <input type="email" required name="email_confirm">
-
         <p class = "password">Password</p>
-        <input type="password" required name="password">
+        <input type="password" name="password" required>
 
         <p class = "password">Password_confirm</p>
         <input type="password" required name="password_confirm">

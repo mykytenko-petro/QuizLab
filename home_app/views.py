@@ -1,5 +1,5 @@
 import flask
-from Project.core import toggle
+from Project import toggle
 
 @toggle(name_of_bp="homeApp")
 def render_home():

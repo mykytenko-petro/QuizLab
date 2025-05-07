@@ -1,16 +1,17 @@
 import flask
 import flask_login
+import flask_email
 from Project.settings import DATABASE
 from .models import User
-from Project.core import toggle
+from Project import toggle
 
 @toggle(name_of_bp="registrationApp")
 def render_registration():
     message = ''
     if flask.request.method == 'POST':
+        form = flask.request.form
         password = flask.request.form["password"]
         confirm_password = flask.request.form["password_confirm"]
-        confirm_email = flask.request.form["email_confirm"]
 
         list_users = User.query.all()
         for user in list_users:
@@ -18,7 +19,7 @@ def render_registration():
                 message = "Така почта вже існує"
 
         if message == "":   
-            if user.email == confirm_email:
+            if form["email"] == form["email_"]:
                 user = User(
                     login = flask.request.form['name'], 
                     password = password, 
