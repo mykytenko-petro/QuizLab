@@ -76,9 +76,9 @@ def render_login():
         for user in list_users:
             if user.email == email_form and user.password == password_form:
                 flask_login.login_user(user)
+                flask.session["username"] = flask_login.current_user.login
     
     if not flask_login.current_user.is_authenticated:
-
         return flask.render_template(template_name_or_list = "login.html")
     else:
         return flask.redirect('/')
