@@ -1,6 +1,5 @@
 import flask
 import flask_login
-import flask_session
 from Project.settings import DATABASE
 from .models import User
 from Project.core import toggle

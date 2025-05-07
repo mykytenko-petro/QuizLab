@@ -1,5 +1,3 @@
-from .settings import project
-
 import home_app
 import registration_app
 import api
