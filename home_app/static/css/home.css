@@ -33,13 +33,11 @@ body {
 }
 
 .code-text {
-    width: 479px;
-    height: 92px;
     font-family: 'Estedad-VF';
     font-style: normal;
     font-weight: 900;
     font-size: 40px;
-    line-height: 70px;
+    line-height: 1.2;
     color: #FFFFFF;
     text-align: center;
 }
@@ -50,9 +48,10 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 300px;
+    height: 300px; 
     background: linear-gradient(90deg, #667EEA 37.02%, #764BA2 100%);
     box-sizing: border-box;
+    margin-top: 100px;
 }
 
 input::placeholder {
@@ -76,4 +75,31 @@ input {
     background: #FFFFFF;
     border: 2px solid #BEBEBE;
     border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.create-quiz {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 19px;
+    gap: 49px;
+    width: 1728px;
+    height: 369px;
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.person {
+    box-sizing: border-box;
+    width: 762px;
+    height: 298px;
+    background: #FFFFFF;
+    border: 5px solid #BEBEBE;
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
