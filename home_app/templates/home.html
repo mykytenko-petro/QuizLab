@@ -3,7 +3,7 @@
 {% block title %}home{% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">    
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">  
 {% endblock %}
 
 {% block header %}
@@ -21,13 +21,20 @@
         </h1>
         <input type="text" placeholder="Код квізу: 123 456">
     </div>
+
     <div>
         <div class="create-quiz">
             <div class="create">
-                
+                <img class="create-person" src="{{ url_for('home.static', filename='img/image.png') }}" alt="">
+                <div class="create-info">
+                    <h1 class="create-text">
+                        Створити квіз самому
+                    </h1>
+                    <button>Quiz editor</button>
+                </div>
             </div>
+
             <div class="create">
-                
             </div>
         </div>
     </div>

@@ -29,6 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
     margin: 0;
 }
 
@@ -82,6 +83,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding: 10px 19px;
     gap: 49px;
     width: 1728px;
@@ -92,14 +94,60 @@ input {
     flex-grow: 0;
 }
 
-.person {
+.create {
     box-sizing: border-box;
-    width: 762px;
-    height: 298px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 45px;
+    gap: 24px;
+    width: 707px;
+    height: 297px;
     background: #FFFFFF;
     border: 5px solid #BEBEBE;
     border-radius: 20px;
     flex: none;
     order: 0;
     flex-grow: 0;
+}
+
+button {
+    box-sizing: border-box;
+    position: absolute;
+    width: 306px;
+    height: 80px;
+    border: 5px solid #000000;
+    border-radius: 50px;
+    position: absolute;
+    font-family: 'Estedad-VF';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 56px;
+    color: #000000;
+}
+
+.create-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    width: 100%;
+    gap: 20px;
+}
+
+.create-person {
+    width: 163px;
+    height: 163px;
+}
+
+.create-text {
+    font-family: 'Estedad-VF';
+    font-weight: 900;
+    font-size: 24px;
+    color: #000000;
+    text-align: center;
 }
