@@ -22,10 +22,10 @@
         <input type="text" placeholder="Код квізу: 123 456">
     </div>
 
-    <div>
+    <div class="content">
         <div class="create-quiz">
             <div class="create">
-                <img class="create-person" src="{{ url_for('home.static', filename='img/image.png') }}" alt="">
+                <img class="create-person" src="{{ url_for('home.static', filename='img/person.png') }}" alt="">
                 <div class="create-info">
                     <h1 class="create-text">
                         Створити квіз самому
@@ -35,6 +35,21 @@
             </div>
 
             <div class="create">
+                <img class="create-ai" src="{{ url_for('home.static', filename='img/ai.png') }}" alt="">
+                <div class="create-info">
+                    <h1 class="create-text">
+                        Згенерувати з допомогою ШІ
+                    </h1>
+                    <button>Quiz editor</button>
+                </div>
+            </div>
+        </div>
+        <div class="recommend">
+            <div class="recommend-text">
+                
+            </div>
+            <div class="lent">
+
             </div>
         </div>
     </div>
