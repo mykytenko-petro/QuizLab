@@ -1,9 +1,15 @@
 import flask
 import flask_login
 from Project.db import DATABASE
-from Project.core import toggle
+#from Project.core import toggle
 from .models import User
-from .core import send_email
+#registration_app.views import send_email
+
+from flask_mail import Message
+#from app import mail
+
+
+
 
 async def render_registration():
     if flask.request.method == 'POST':
@@ -25,6 +31,29 @@ async def render_registration():
                 )
         
                 try:
+                    
+                    
+                    def index():
+                        msg = Message(
+                            subject="Hello",
+                            sender="italymay20@gmai.com",
+                            recipients=["timagreen2010@gmail.com"],
+                        )
+                    index()
+                    
+                    #def send_email(subject, sender, recipients, text_body, html_body):
+                    #        mail = ("123123")
+                    #        msg = Message(subject, sender=sender, recipients=recipients)
+                    #        msg.body = text_body
+                    #        msg.html = html_body
+                    #        mail.send(msg)
+                    #send_email(
+                    #    subject="s", 
+                    #    sender="italymay20@gmail.com", 
+                    #    recipients=["timagreen2010@gmail.com"],
+                    #    text_body= flask.render_template('email/reset_password.txt', user=user, token=token),
+                    #    html_body= flask.render_template('email/reset_password.html', user=user, token=token)) 
+                    #
                     # send_email(
                     #     subject = "First try",                      
                     #     recipients = flask.request.form["email"],
