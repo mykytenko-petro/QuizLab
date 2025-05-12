@@ -1,5 +1,5 @@
-import flask_login
-from Project.settings import DATABASE
+from Project.db import DATABASE
+from flask_login import UserMixin
 
 class User(DATABASE.Model, flask_login.UserMixin):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)

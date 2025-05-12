@@ -6,17 +6,19 @@
 
 #Розробники цього проекту:
 
-Петро Микитенко(тімлід) - "https://github.com/mykytenko-petro/QuizLab"
+Микитенко Петро(тімлід) - "https://github.com/mykytenko-petro/QuizLab"
 
 Зелений Тимофій(кодер №1) - "https://github.com/TymofiiZelenyi"
 
-Іван Михайлюк(кодер  №2) - "https://github.com/Ivan55555555555"
+Михайлюк Іван(кодер  №2) - "https://github.com/Ivan55555555555"
 
-Назар Ісаченко(кодер №3) - "https://github.com/IsachenkoNazar"
+Ісаченко Назар(кодер №3) - "https://github.com/IsachenkoNazar"
 
 Петренко Давид(дизайнер №1) - "https://github.com/Davidptn"
 
 Галкін Єгор(дизайнер №2) - "https://github.com/EgorGalkinORG"
+
+Іванов Іван(дизайнер #3) - "https://github.com/IvanovIvaan"
 
 # Структура проєкту
 ```mermaid

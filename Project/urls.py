@@ -1,3 +1,6 @@
+from .settings import project
+import api
+
 import home_app
 import registration_app
 import create_quiz_app
