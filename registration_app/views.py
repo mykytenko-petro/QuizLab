@@ -2,17 +2,13 @@ import flask
 import flask_login
 import secrets
 from Project.db import DATABASE
-from Project.core import toggle
+from Project.utils import toggle, send_email
 from .models import User
 
 user_session = []
 
 def user_seek(incoming_user_session):
     for session in user_session:
-        # print(
-        #     "server_side:\n", session["user_session"],
-        #     "client side:\n", incoming_user_session
-        # )
         if session["user_session"] == incoming_user_session:
             return session
     else:
@@ -35,7 +31,6 @@ def render_registration():
             if message == "":
                 if form["password"] == form["password_confirm"]:
                     confirmation_code = secrets.token_hex(6)
-                    print(confirmation_code)
                     user_session.append(
                         {
                             "login": form['login'],
@@ -44,6 +39,19 @@ def render_registration():
                             "user_session": form["user_session"],
                             "confirmation_code": confirmation_code
                         }
+                    )
+
+                    send_email(
+                        subject= 'Hello from the other side!',
+                        html_body= f"""
+                            <html>
+                                <body>
+                                    <h1>Привіт, друже!</h1>
+                                    <p>Твій код підтвердження: {confirmation_code}</p>
+                                </body>
+                            </html>
+                        """,
+                        recipients= [form['email']]
                     )
                     return flask.render_template(
                         template_name_or_list= "email_confirmation.html",
