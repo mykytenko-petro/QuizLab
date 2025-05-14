@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    registration
+{% endblock %}
+
+{% block header %}
+    <!-- <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}"> -->
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('registration.static', filename='js/email_confirmation.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <p class="login">enter the code to confirm email</p>
+        <input type="hidden" name="user_session" id="user_session" value="">
+        <input type="text" name="confirmation_code" class="login" required>
+
+        <button>SEND</button>
+    </form>
+
+    <h1>{{ message }}</h1>
+
+{% endblock %}

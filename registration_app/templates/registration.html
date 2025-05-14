@@ -5,25 +5,28 @@
 {% endblock %}
 
 {% block header %}
-    <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}"> -->
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('registration.static', filename='js/registration.js') }}"></script>
 {% endblock %}
 
 {% block content %}
     <form method="post">
-        <p class = "login">Login</p>
-        <input type="text" required name = "name" class = name>
+        <input type="hidden" name="user_session" id="user_session">
 
-        <p class = "email">Email</p>
-        <input type="email" required name="email">
+        <p class="login">Login</p>
+        <input type="text" name="login" class="login" required>
 
-        <p class = "email">Email_confirm</p>
-        <input type="email" required name="email_confirm">
+        <p class="email">Email</p>
+        <input type="email" name="email" required>
 
-        <p class = "password">Password</p>
-        <input type="password" required name="password">
+        <p class="password">Password</p>
+        <input type="password" name="password" required>
 
         <p class = "password">Password_confirm</p>
-        <input type="password" required name="password_confirm">
+        <input type="password" name="password_confirm" required>
 
         <button>SEND</button>
     </form>
