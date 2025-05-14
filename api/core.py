@@ -1,5 +1,5 @@
 import flask_login
-from Project import toggle
+from Project.utils import toggle
 
 @toggle(name_of_bp="apiApp")
 def send_name():

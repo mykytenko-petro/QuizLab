@@ -2,26 +2,26 @@ from Project.settings import DATABASE
 
 class Quiz(DATABASE.Model):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)
-    owner = ... # one to one
+    owner = ...
 
     name = DATABASE.Column(DATABASE.String(50), nullable = False)
     description = DATABASE.Column(DATABASE.String(256), nullable = True)
 
-    questions = ... # one to many
+    questions = ...
 
 class Question(DATABASE.Model):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)
-    quiz = ... # one to one
+    quiz = ...
 
     description = DATABASE.Column(DATABASE.String(256), nullable = False)
     path_to_image = DATABASE.Column(DATABASE.String(256), nullable = True)
     multiple_answers = DATABASE.Column(DATABASE.Boolean, default = False, nullable = False)
     
-    answers = ... # one to many
+    answers = ...
 
 class Answer(DATABASE.Model):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)
-    question = ... # one to one
+    question = ...
 
     description = DATABASE.Column(DATABASE.String(256), nullable = False)
     is_right = DATABASE.Column(DATABASE.Boolean, default = False, nullable = False)

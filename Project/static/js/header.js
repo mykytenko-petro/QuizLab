@@ -1,5 +1,9 @@
 let header = document.querySelector("#header");
 
+function delCookies() {
+    sessionStorage.clear()
+}
+
 function setHeader() {
     const username = sessionStorage.getItem("username")
 
@@ -9,7 +13,7 @@ function setHeader() {
         header.innerHTML = `
         <nav>
             <a href="/">Home</a>
-            <a href="/logout">logout</a>
+            <a href="/logout" onclick="delCookies()">logout</a>
             <a href="/users/${username}">${username}</a>
         </nav>
         `;

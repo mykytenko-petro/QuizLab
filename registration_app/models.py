@@ -1,4 +1,4 @@
-from Project.settings import DATABASE
+from Project.db import DATABASE
 from flask_login import UserMixin
 
 class User(DATABASE.Model, UserMixin):
@@ -9,7 +9,7 @@ class User(DATABASE.Model, UserMixin):
     password = DATABASE.Column(DATABASE.String(35), nullable = False)
     is_admin = DATABASE.Column(DATABASE.Boolean, default = False, nullable = False)
 
-    quizzes = ... # one to many
+    quizzes = ...
 
     def __repr__(self) -> str:
         return f"user: {self.login}"
