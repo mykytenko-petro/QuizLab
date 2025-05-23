@@ -8,32 +8,20 @@
     {% block links %}{% endblock %}
 </head>
 <body>
-    <header id="header">
-        <nav>
-            <a href="/">Home</a>
-            <a href="/registration">registration</a>
-            <a href="/login">login</a>
-        </nav>
-    </header>
+    <header id="header"></header>
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
-    
+
     <script>
-        const flaskSession = JSON.parse('{{ session | tojson }}');
-        console.log(flaskSession)
-        
-        if (flaskSession) {
-            for (const [key, value] of Object.entries(flaskSession)) {
-                console.log(`${key}: ${value}`);
-                sessionStorage.setItem(key, value);
-            };
-        };
+        const username = JSON.parse('{{ session.get("username", "") | tojson }}');
+        sessionStorage.setItem("username", username)
     </script>
     <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+    
     {% block scripts %}{% endblock %}
 </body>
 </html>

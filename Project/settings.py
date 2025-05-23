@@ -1,7 +1,7 @@
 import flask
 import os
+import secrets
 
-# Create Flask app
 project = flask.Flask(
    import_name="Project",
    static_url_path="/static",
@@ -9,3 +9,5 @@ project = flask.Flask(
    template_folder="templates",
    instance_path=os.path.abspath(os.path.join(__file__, "..", "instance"))
 )
+
+project.secret_key = secrets.token_hex(32)

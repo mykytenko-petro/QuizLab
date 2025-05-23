@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}create quiz{% endblock %}
+
+{% block links %}
+    <!-- <link rel="stylesheet" href="{{ url_for('createQuiz.static', filename='css/home.css') }}">     -->
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('createQuiz.static', filename='js/createQuiz.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <form id="quizSettings">
+        <input type="text" name="name">
+        <textarea name="description" id=""></textarea>
+        <button type="button" onclick="setQuizSettings()">save</button>
+    </form>
+    
+    <button type="button" onclick="sendQuiz()"></button>
+{% endblock %}

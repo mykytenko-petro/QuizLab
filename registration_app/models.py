@@ -1,12 +1,12 @@
-from Project.db import DATABASE
+from Project.db import BaseModel, DATABASE as DB
 from flask_login import UserMixin
 
-class User(DATABASE.Model, UserMixin):
-    id = DATABASE.Column(DATABASE.Integer, primary_key = True)
-    login = DATABASE.Column(DATABASE.String(50), nullable = False)
-    email = DATABASE.Column(DATABASE.String(256), nullable = False)
-    password = DATABASE.Column(DATABASE.String(50), nullable = False)
-    is_admin = DATABASE.Column(DATABASE.Boolean, default = False, nullable = False)
+class User(BaseModel, UserMixin):
+    id = DB.Column(DB.Integer, primary_key = True)
 
-    def __repr__(self) -> str:
-        return f"user : {self.login}"
+    login = DB.Column(DB.String(50), nullable = False)
+    email = DB.Column(DB.String(50), nullable = False)
+    password = DB.Column(DB.String(35), nullable = False)
+    is_admin = DB.Column(DB.Boolean, default = False, nullable = False)
+
+    quizzes = DB.relationship('Quiz', backref= 'user', cascade= 'all, delete-orphan')
