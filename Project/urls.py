@@ -23,7 +23,7 @@ registration_app.loginApp.add_url_rule(
 
 registration_app.loginApp.add_url_rule(
     rule= '/logout',
-    view_func= registration_app.render_logout,
+    view_func= registration_app.logout,
     methods = ['GET']
 )
 

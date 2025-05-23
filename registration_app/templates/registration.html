@@ -4,18 +4,8 @@
     registration
 {% endblock %}
 
-{% block header %}
-    <!-- <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}"> -->
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('registration.static', filename='js/registration.js') }}"></script>
-{% endblock %}
-
 {% block content %}
     <form method="post">
-        <input type="hidden" name="user_session" id="user_session">
-
         <p class="login">Login</p>
         <input type="text" name="login" class="login" required>
 
@@ -32,5 +22,4 @@
     </form>
 
     <h1>{{ message }}</h1>
-
 {% endblock %}
