@@ -1,7 +1,7 @@
 import home_app
 import registration_app
 import api
-
+import profile_app
 home_app.homeApp.add_url_rule(
     rule='/',
     view_func=home_app.render_home,
@@ -30,4 +30,11 @@ api.apiApp.add_url_rule(
     rule= '/get_name',
     view_func= api.send_name,
     methods = ['POST']
+)
+
+profile_app.profile_app.add_url_rule(
+    rule= "/profile",
+    view_func = profile_app.render_profile,
+    methods = ['GET', 'POST']
+   
 )

@@ -14,7 +14,7 @@ function setHeader() {
         <nav>
             <a href="/">Home</a>
             <a href="/logout" onclick="delCookies()">logout</a>
-            <a href="/users/${username}">${username}</a>
+            <a href="/profile">${username}</a>
         </nav>
         `;
     } else {
@@ -23,6 +23,8 @@ function setHeader() {
             <a href="/">Home</a>
             <a href="/registration">registration</a>
             <a href="/login">login</a>
+
+
         </nav>
         `;
     };
