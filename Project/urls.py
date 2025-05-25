@@ -15,6 +15,12 @@ registration_app.registrationApp.add_url_rule(
     methods=['GET', 'POST']
 )
 
+registration_app.registrationApp.add_url_rule(
+    rule='/code_confirmation',
+    view_func=registration_app.render_code_confirmation,
+    methods=['GET', 'POST']
+)
+
 registration_app.loginApp.add_url_rule(
     rule = '/login',
     view_func = registration_app.render_login,
@@ -31,6 +37,12 @@ create_quiz_app.createQuizApp.add_url_rule(
     rule= '/create_quiz',
     view_func= create_quiz_app.render_create_quiz,
     methods = ['GET', 'POST']
+)
+
+create_quiz_app.createQuizApp.add_url_rule(
+    rule= '/create_quiz_api',
+    view_func= create_quiz_app.create_quiz_api,
+    methods = ['POST']
 )
 
 api.apiApp.add_url_rule(

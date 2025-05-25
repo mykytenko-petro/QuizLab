@@ -1,13 +1,14 @@
 import flask
-from Project.utils import toggle, login_checker
+from Project.utils import toggle, login_required, page_config
 from .core import AssembleQuiz
 
 @toggle(name_of_bp= "createQuizApp")
-@login_checker
+@login_required
+@page_config(template_name= "create_quiz.html")
 def render_create_quiz():
-    return flask.render_template(template_name_or_list= "create_quiz.html")
+    AssembleQuiz.handle_data(data= {"goal": "create", "quiz": {}})
 
 @toggle(name_of_bp= "createQuizApp")
-@login_checker
-def create_quiz():
+@login_required
+def create_quiz_api():
     return AssembleQuiz.handle_data(flask.request.json)

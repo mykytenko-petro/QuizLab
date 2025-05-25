@@ -2,6 +2,8 @@ from Project.db import BaseModel, DATABASE as DB
 from flask_login import UserMixin
 
 class User(BaseModel, UserMixin):
+    __tablename__ = "user"
+
     id = DB.Column(DB.Integer, primary_key = True)
 
     login = DB.Column(DB.String(50), nullable = False)
