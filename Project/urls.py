@@ -15,6 +15,12 @@ registration_app.registrationApp.add_url_rule(
     methods=['GET', 'POST']
 )
 
+registration_app.registrationApp.add_url_rule(
+    rule='/code_confirmation',
+    view_func=registration_app.render_code_confirmation,
+    methods=['GET', 'POST']
+)
+
 registration_app.loginApp.add_url_rule(
     rule = '/login',
     view_func = registration_app.render_login,

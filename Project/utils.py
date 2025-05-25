@@ -9,7 +9,7 @@ def toggle(name_of_bp):
     def inner(func):
         @functools.wraps(func)
         def wrapper(*agrs, **kwargs):
-            if os.getenv(name_of_bp) == "TRUE":
+            if not os.getenv(name_of_bp) or os.getenv(name_of_bp) == "TRUE":
                 return func(*agrs, **kwargs)
             else:
                 return flask.render_template("page_not_found.html")
@@ -74,11 +74,12 @@ def page_config(template_name : str):
     
     return inner
 
-def send_email(subject : str, recipients : list, *agrs):
+def send_email(subject : str, recipients : list, *agrs, **kwargs):
     msg = flask_mail.Message(
         subject= subject,
         recipients= recipients,
-        *agrs
+        *agrs,
+        **kwargs
     )
 
     mail.send(msg)

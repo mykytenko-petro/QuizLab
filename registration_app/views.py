@@ -11,7 +11,7 @@ def render_registration():
     if flask.request.method == 'POST':
         form = flask.request.form
         
-        if not "registration_input_data" in flask.session:
+        if form['login']:
             if User.query.filter_by(email=form["email"]).first():
                 message = "Така почта вже існує"
 
@@ -31,37 +31,43 @@ def render_registration():
                 send_email(
                     subject= 'Confirmation code',
                     recipients= [form['email']],
-                    html_body= flask.render_template(
+                    html= flask.render_template(
                         template_name_or_list= "email_confirmation_in_mail.html",
                         confirmation_code= confirmation_code
                     )
                 )
 
-                return {"alternative_template": "email_confirmation.html"}
-                
-        else:
-            session_data = flask.session["registration_input_data"]
+                return {"redirect": "/code_confirmation"}
             
-            if form["confirmation_code"] == session_data["confirmation_code"]:
-                user = User(
-                    login = session_data['login'], 
-                    password = session_data["password"],
-                    email = session_data["email"],
-                    is_admin = False
-                )
-                flask.session.pop("registration_input_data")
+            return {"message": message}
 
-                try:
-                    DATABASE.session.add(user)
-                    DATABASE.session.commit()
-                    
-                    flask_login.login_user(user)
-                    
-                    return {"redirect": "/"}
-                except Exception as error:
-                    print(error)
-            else:
-                message = "неправильний код"
+@toggle(name_of_bp= "registrationApp")
+@page_config(template_name= "email_confirmation.html")
+def render_code_confirmation():
+    if flask.request.method == 'POST':
+        form = flask.request.form
+        session_data = flask.session["registration_input_data"]
+                
+        if form["confirmation_code"] == session_data["confirmation_code"]:
+            user = User(
+                login = session_data['login'], 
+                password = session_data["password"],
+                email = session_data["email"],
+                is_admin = False
+            )
+            flask.session.pop("registration_input_data")
+
+            try:
+                DATABASE.session.add(user)
+                DATABASE.session.commit()
+                
+                flask_login.login_user(user)
+                
+                return {"redirect": "/"}
+            except Exception as error:
+                print(error)
+        else:
+            message = "неправильний код"
 
         return {"message": message}
 
