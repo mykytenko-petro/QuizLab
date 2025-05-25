@@ -33,6 +33,12 @@ create_quiz_app.createQuizApp.add_url_rule(
     methods = ['GET', 'POST']
 )
 
+create_quiz_app.createQuizApp.add_url_rule(
+    rule= '/create_quiz_api',
+    view_func= create_quiz_app.create_quiz_api,
+    methods = ['POST']
+)
+
 api.apiApp.add_url_rule(
     rule= '/get_name',
     view_func= api.send_name,

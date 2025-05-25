@@ -1,8 +1,6 @@
-import flask
-from Project.utils import toggle
+from Project.utils import toggle, page_config
 
 @toggle(name_of_bp="homeApp")
+@page_config(template_name= "home.html")
 def render_home():
-    return flask.render_template(
-        template_name_or_list= "home.html"
-    )
+    return None

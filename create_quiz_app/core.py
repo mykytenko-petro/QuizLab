@@ -1,28 +1,34 @@
+import flask
 import flask_login
 from Project.db import DATABASE
 from .models import Quiz, Question, Answer
 
 class AssembleQuiz:
-    def handle_data(self, data):
+    @staticmethod
+    def handle_data(data):
         if "quiz" in data:
-            return self.create_quiz(data)
+            return AssembleQuiz.create_quiz(data)
 
         elif "question" in data:
-            return self.create_question(data)
+            return AssembleQuiz.create_question(data)
 
         elif "question" in data:
-            return self.create_answer(data)
+            return AssembleQuiz.create_answer(data)
 
-    def create_quiz(self, data):
+    @staticmethod
+    def create_quiz(data):
         match data["goal"]:
             case "create":
                 quiz = Quiz()
+                print("objects", dir(quiz))
 
                 flask_login.current_user.quizzes.append(quiz)
                 DATABASE.session.commit()
 
+                return flask.redirect("/")
+
             case "edit":
-                quiz: Quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
+                quiz: Quiz = Quiz.query.filter_by(id= data["quiz"]["quiz_id"]).first()
 
                 quiz.name = data["name"]
                 quiz.description = data["description"]
@@ -40,7 +46,8 @@ class AssembleQuiz:
 
         return quiz.to_dict()
 
-    def create_question(self, data):
+    @staticmethod
+    def create_question(data):
         match data["goal"]:
             case "create":
                 quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
@@ -70,7 +77,8 @@ class AssembleQuiz:
 
         return question.to_dict()
 
-    def create_answer(self, data):
+    @staticmethod
+    def create_answer(data):
         match data["goal"]:
             case "create":
                 question = Question.query.filter_by(id= data["quiz_id"]).first()

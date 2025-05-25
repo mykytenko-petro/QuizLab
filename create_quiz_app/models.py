@@ -1,6 +1,8 @@
 from Project.db import BaseModel, DATABASE as DB
 
 class Quiz(BaseModel):
+    __tablename__ = "quiz"
+
     id = DB.Column(DB.Integer, primary_key = True)
     owner_id = DB.Column(DB.Integer, DB.ForeignKey('user.id'), nullable = False)
 
@@ -10,6 +12,8 @@ class Quiz(BaseModel):
     questions = DB.relationship('Question', backref = 'quiz', cascade='all, delete-orphan')
 
 class Question(BaseModel):
+    __tablename__ = "question"
+
     id = DB.Column(DB.Integer, primary_key = True)
     quiz_id = DB.Column(DB.Integer, DB.ForeignKey('quiz.id'), nullable = False)
 
@@ -19,6 +23,8 @@ class Question(BaseModel):
     answers = DB.relationship('Answer', backref = 'question', cascade='all, delete-orphan')
 
 class Answer(BaseModel):
+    __tablename__ = "answer"
+
     id = DB.Column(DB.Integer, primary_key = True)
     question_id = DB.Column(DB.Integer, DB.ForeignKey('question.id'), nullable = False)
 

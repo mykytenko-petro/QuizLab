@@ -2,13 +2,12 @@ import flask
 import flask_login
 import secrets
 from Project.db import DATABASE
-from Project.utils import toggle, send_email
+from Project.utils import toggle, send_email, page_config
 from .models import User
 
-@toggle(name_of_bp="registrationApp")
+@toggle(name_of_bp= "registrationApp")
+@page_config(template_name= "registration.html")
 def render_registration():
-    message = ''
-    
     if flask.request.method == 'POST':
         form = flask.request.form
         
@@ -38,10 +37,8 @@ def render_registration():
                     )
                 )
 
-                return flask.render_template(
-                    template_name_or_list= "email_confirmation.html",
-                    message= message
-                )
+                return {"alternative_template": "email_confirmation.html"}
+                
         else:
             session_data = flask.session["registration_input_data"]
             
@@ -58,50 +55,34 @@ def render_registration():
                     DATABASE.session.add(user)
                     DATABASE.session.commit()
                     
-                    return render_login(incoming_user= user)
+                    flask_login.login_user(user)
+                    
+                    return {"redirect": "/"}
                 except Exception as error:
                     print(error)
             else:
                 message = "неправильний код"
 
-            return flask.render_template(
-                template_name_or_list= "email_confirmation.html",
-                message= message
-            )
-
-    return flask.render_template(
-        template_name_or_list= "registration.html",
-        message= message
-    )
+        return {"message": message}
 
 @toggle(name_of_bp="loginApp")
-def render_login(incoming_user: User | None = None):
-    def login_user(user):
-        flask_login.login_user(user)
-        flask.session["username"] = flask_login.current_user.login
-        return flask.redirect('/')
-    
-    message = ''
+@page_config(template_name= "login.html")
+def render_login():
     if flask.request.method == "POST":
         form = flask.request.form
-
-        if incoming_user:
-            return login_user(incoming_user)
+        
+        users_list = User.query.all()
+        for user in users_list:
+            if user.email == form["email"] and user.password == form["password"]:
+                flask_login.login_user(user)
+                return {"redirect": "/"}
         else:
-            users_list = User.query.all()
-            for user in users_list:
-                if user.email == form["email"] and user.password == form["password"]:
-                    return login_user(user)
+            if not User.query.filter_by(email=form["email"]).first():
+                message = 'такої пошти не існує'
             else:
-                if not User.query.filter_by(email=form["email"]).first():
-                    message = 'такої пошти не існує'
-                else:
-                    message = 'неправильний код'
+                message = 'неправильний код'
     
-    return flask.render_template(
-        template_name_or_list = "login.html",
-        message= message
-    )    
+        return {"message": message}
     
 def logout():
     flask.session.clear()
