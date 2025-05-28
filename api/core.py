@@ -1,9 +1,11 @@
-import flask_login
-from Project.utils import toggle
+import flask
+from Project.utils import toggle, login_required
+from create_quiz_app.core import AssembleQuiz
 
-@toggle(name_of_bp="apiApp")
-def send_name():
-    if flask_login.current_user.is_authenticated:
-        return {"name": flask_login.current_user.login}
-    else:
-        return {"name": "guest"}
+@toggle(name_of_bp= "apiApp")
+@login_required
+def create_quiz_api():
+    if flask.request.method == "POST":
+        return AssembleQuiz.handle_data(flask.request.json)
+
+    return AssembleQuiz.handle_data(data= {"goal": "create", "quiz": {}})

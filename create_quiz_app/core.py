@@ -6,6 +6,7 @@ from .models import Quiz, Question, Answer
 class AssembleQuiz:
     @staticmethod
     def handle_data(data):
+        print(data)
         if "quiz" in data:
             return AssembleQuiz.create_quiz(data)
 
@@ -20,18 +21,17 @@ class AssembleQuiz:
         match data["goal"]:
             case "create":
                 quiz = Quiz()
-                print("objects", dir(quiz))
 
                 flask_login.current_user.quizzes.append(quiz)
                 DATABASE.session.commit()
 
-                return flask.redirect("/")
+                return flask.redirect(f"/quiz/{quiz.id}")
 
             case "edit":
-                quiz: Quiz = Quiz.query.filter_by(id= data["quiz"]["quiz_id"]).first()
+                quiz: Quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
 
-                quiz.name = data["name"]
-                quiz.description = data["description"]
+                quiz.name = data["quiz"]["name"]
+                quiz.description = data["quiz"]["description"]
 
                 DATABASE.session.add(quiz)
                 DATABASE.session.commit()

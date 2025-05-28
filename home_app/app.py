@@ -1,6 +1,5 @@
 import flask
 
-#Створена для того, щоб організувати код застосунку home_app.
 homeApp = flask.Blueprint(
     name = "home",
     import_name = "home_app",
