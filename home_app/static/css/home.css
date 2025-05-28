@@ -1,3 +1,8 @@
+body {
+    height: 120%;
+    background: linear-gradient(-90deg, rgba(227, 198, 238, 0.8), rgba(0, 0, 0, 0) 70.71%);
+}
+
 .header-links {
     display: flex;
     flex-direction: row;
@@ -11,18 +16,17 @@
 }
 
 a{
-    width: 155px;
     height: 49px;
     font-family: 'Estedad-VF', sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 32px;
     line-height: 56px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
 }
 
-.menu {
+/* .menu {
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -38,13 +42,42 @@ a{
 
 .menu:hover {
     transform: scale(1.03);
+} */
+
+.search {
+    margin: auto;
+    margin-top: 100px;
+    width: 950px;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'Estedad-VF', sans-serif;
+    font-weight: 900;
+    color: #A34EC8;
+    border: 3px solid #d8d8d8;
+    padding-left: 20px;
+    transition: 0.3s;
+    outline: none;
+}
+
+.search:hover {
+    border-color: #A34EC8;
+    /* box-shadow: 0px 5px 10px #808080; */
+}
+.search:focus {
+    transform: scale(1.01);
+    
+}
+
+.search::placeholder {
+    font-size: 30px;
+
 }
 
 .start-quiz {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 20px;
     gap: 20px;
 }
 
@@ -68,14 +101,19 @@ body {
     color: #FFFFFF;
     background-color: #A34EC8;
     border-radius: 10px;
+    border: none;
     text-align: center;
     margin-left: 5px;
     transition: 0.2s;
 }
 
 .code-text:hover {
-    background-color: #8e42af;
     transform: rotate(-2deg) scale(1.03);
+    box-shadow: 0px 5px 5px #bebebe;
+}
+.code-text:active {
+    background-color: #8e42af;
+    transform: rotate(-2deg) scale(1);
 }
 
 .quiz-code {
@@ -85,7 +123,15 @@ body {
     font-size: 36px;
     color: #A34EC8;
     align-self: center;
+    outline: none;
+    transition: 0.3s;
+}
 
+.quiz-code:hover {
+    border-color: #A34EC8;
+}
+.quiz-code:focus {
+    transform: scale(1.02);
 }
 
 .code {
@@ -99,9 +145,12 @@ body {
     width: 800px;
     height: 300px;
     background: #FFFFFF;
-    border: 3px solid #BEBEBE;
+    border: 3px solid #d8d8d8;
     border-radius: 20px;
+    transition: 0.3s;
+    box-shadow: 0px 5px 10px #808080;
 }
+
 
 .code-into {
     display: flex;
@@ -135,6 +184,10 @@ input {
     margin-right: 5px;
 }
 
+.input:hover {
+    border-color: #A34EC8;
+}
+
 
 .quiz-button {
     display: flex;
@@ -143,16 +196,26 @@ input {
     gap: 20px;
     background-color: #A34EC8;
     color: #FFFFFF;
-    width: 300px;
-    line-height: 2;
+    width: 340px;
+    height: 100px;
     padding: 0px 20px;
     border-radius: 15px;
     transition: 0.2s;
+    text-decoration: none;
+}
+
+.quiz-button h1 {
+    color: #FFFFFF;
 }
 
 .quiz-button:hover {
     background-color: #8e42af;
     transform: scale(1.03);
+}
+
+.quiz-button h1 {
+    font-size: 30px;
+    font-weight: bold;
 }
 
 
@@ -165,15 +228,16 @@ input {
     justify-content: center;
     padding: 13px 45px;
     gap: 24px;
-    width: 400px;
+    width: 450px;
     height: 300px;
     background: #FFFFFF;
-    border: 3px solid #BEBEBE;
+    border: 3px solid #d8d8d8;
     border-radius: 20px;
     flex: none;
     order: 0;
     flex-grow: 0;
     position: relative;
+    box-shadow: 0px 5px 10px #808080;
 }
 
 
@@ -214,7 +278,7 @@ input {
 }
 
 .create-text {
-    font-family: Estedad-VF, sans-serif;
+    font-family: "Estedad-VF", sans-serif;
     font-weight: 700;
     font-size: 48px;
     color: #000000;
@@ -238,4 +302,57 @@ input {
     font-size: 24px;
     line-height: 42px;
     color: #000000;
+}
+
+
+.box {
+    display: flex;
+    align-items: flex-end;
+    width: 300px;
+    height: 180px;
+    background: 
+        linear-gradient(0deg, rgba(163, 12, 223, 0.8), rgba(0, 0, 0, 0) 70.71%),
+        url("../img/python.jpg");
+    
+    transition: 0.3s;
+    box-shadow: 0px 3px 5px #9b8798;
+}
+.box:hover {
+    transform: scale(1.03);
+}
+.box p {
+    color: white;
+    margin-left: 10px;
+}
+
+.recommend-new-pop {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+.quiz-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.star {
+    margin-bottom: 4px;
+}
+
+
+
+
+.background-img {
+    position: relative;
+    z-index: -100;
+}
+
+h1 {
+    font-family: "Estedad-VF", sans-serif;
+    font-weight: 700;
+    color: #A34EC8;
 }

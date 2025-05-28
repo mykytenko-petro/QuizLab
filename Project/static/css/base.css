@@ -1,17 +1,64 @@
-.header {
-    position: absolute;
+nav {
+    position: fixed;
     width: 100vw;
-    height: 60px;
+    height: 70px;
     left: 0px;
     top: 0px;
     background: #ffffff;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-around; */
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+    gap: 40px;
+    z-index: 100;
+    box-shadow: 0px 2px 20px #808080;
+    border-bottom: 3px solid #d8d8d8;
 }
+
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-right {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    align-self: center;
+    justify-content: flex-end;
+    margin-right: 70px;
+}
+
+.icon {
+    transition: 0.5s;
+}
+.icon:hover {
+    transform: scale(1.1);
+}
+.icon:active {
+    transform: rotate(165deg);
+}
+
+a {
+    transition: 0.2s;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+a:hover {
+    transform: scale(1.03);
+}
+a:active {
+    transform: scale(0.95);
+}
+
 
 
 
@@ -19,22 +66,20 @@
     text-align: center;
     font-size: 2.5em;  
     font-weight: bold;
-    margin: 0 auto;
+    margin: 0 20px;
     left: 100px;
     color: #A34EC8;
     font-family: 'Estedad-VF', sans-serif;
 }
 
 p{
-    position: absolute;
-    width: 128px;
     height: 49px;
-    /* left: 47px;
-    top: 23px; */
-    font-family: 'Estedad-VF';
+
     font-style: normal;
     font-weight: 900;
     font-size: 32px;
-    line-height: 56px;
-    color: #FFFFFF;
+    
+    color: #A34EC8;
+    font-family: 'Estedad-VF', sans-serif;
+    margin: 0;
 }

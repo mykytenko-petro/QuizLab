@@ -10,18 +10,26 @@
 <body>
     <header>
         <nav>
-            <div class="header">
+            <div class="navbar">
                 <img class="icon" src="{{ url_for('static', filename='icons/tube.png') }}" alt="">
                 <p class="name">QuizLab</p>
             </div>
-            <a href="/">Home</a>
-            {% if user %}
-                <a href="/logout">logout</a>
-                <a href="/userpage">{{ user.login }}</a>
-            {% else %}
-                <a href="/registration">registration</a>
-                <a href="/login">login</a>
-            {% endif %}
+            
+            
+            <div class="navbar-right">
+                {% if user %}
+                    <a href="/logout"><p>logout</p></a>
+                    <a href="/userpage"><p>{{ user.login }}</p></a>
+                {% else %}               
+                    <a href="/registration"><p>registration</p></a>
+                    <a href="/login"><p>login</p></a>                
+                {% endif %}
+    
+                <a href="/"><p>Home</p></a>
+            </div>
+            
+            
+            
         </nav>
     </header>
 
