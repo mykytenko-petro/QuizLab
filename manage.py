@@ -4,10 +4,9 @@ def main():
     try:
         Project.assemble()
         Project.project.run(
-            debug = True,
-            port = 2232
+            debug=True,
+            port=2232
         )
-
     except Exception as error:
         print(error)
 

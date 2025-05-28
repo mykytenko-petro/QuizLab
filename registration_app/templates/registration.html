@@ -4,24 +4,22 @@
     registration
 {% endblock %}
 
-{% block links %}
-    <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'css/style.css') }}">
-{% endblock %}
-
 {% block content %}
-    <form method="post" class = "reg">
-        <p class = "registration">Зареєструйтесь</p>
-        <input type="text" required name = "name" placeholder="Name">
+    <form method="post">
+        <p class="login">Login</p>
+        <input type="text" name="login" class="login" required>
 
-        <input type="email" required name="email" placeholder="Email">
+        <p class="email">Email</p>
+        <input type="email" name="email" required>
 
-        <input type="password" required name="password" placeholder="Password">
-        <button type="button" id="password" onclick="showHide('password')">🙈</button>
+        <p class="password">Password</p>
+        <input type="password" name="password" required>
 
-        <input type="password" required name="password_confirm" placeholder="Password Again">
-        <button type="button" id="password_confirm" onclick="showHide('password_confirm')">🙈</button>
+        <p class = "password">Password_confirm</p>
+        <input type="password" name="password_confirm" required>
 
         <button>Зареєструватись</button>
     </form>
-    <script src="{{ url_for('registration.static', filename = 'js/showHide.js') }}"></script>
+
+    <h1>{{ message }}</h1>
 {% endblock %}

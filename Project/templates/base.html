@@ -8,20 +8,28 @@
     {% block links %}{% endblock %}
 </head>
 <body>
-    <div class="header">
-        <img class="icon" src="{{ url_for('static', filename='icons/tube.png') }}" alt="">
-        <p class="name">QuizLab</p>
-        {% block header %}
-    
-        {% endblock %}
-    </div>
+    <header>
+        <nav>
+            <div class="header">
+                <img class="icon" src="{{ url_for('static', filename='icons/tube.png') }}" alt="">
+                <p class="name">QuizLab</p>
+            </div>
+            <a href="/">Home</a>
+            {% if user %}
+                <a href="/logout">logout</a>
+                <a href="/userpage">{{ user.login }}</a>
+            {% else %}
+                <a href="/registration">registration</a>
+                <a href="/login">login</a>
+            {% endif %}
+        </nav>
+    </header>
 
-    {% block content %}
-    
-    {% endblock %}
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-    <div class="footer">
-
-    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>
