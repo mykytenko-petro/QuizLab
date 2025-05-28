@@ -43,32 +43,32 @@ def page_config(template_name : str):
         @functools.wraps(func)
         def wrapper(*agrs, **kwargs):
             user = flask_login.current_user if flask_login.current_user.is_authenticated else None
+            print(user)
 
-            context = func(*agrs, **kwargs)
+            context: dict = func(*agrs, **kwargs) if func(*agrs, **kwargs) else {}
             print("context:", context)
 
-            if context is None:
-                return flask.render_template(
-                    template_name_or_list= template_name,
-                    user= user
-                )
+            if "redirect" in context:
+                return flask.redirect(context["redirect"])
 
             if "alternative_template" in context:
-                return flask.render_template(
-                    template_name_or_list= context["alternative_template"],
-                    username= user,
-                    **context
-                )
-            
-            elif "redirect" in context:
-                return flask.redirect(context["redirect"])
-            
+                render_template_name = context["alternative_template"]
             else:
-                return flask.render_template(
-                    template_name_or_list= template_name,
-                    user= user,
-                    **context
-                )
+                render_template_name = template_name
+
+            rendered_template = flask.render_template(
+                template_name_or_list= render_template_name,
+                user= user,
+                **context
+            )
+            
+            response = flask.make_response(rendered_template)
+
+            if "cookies" in context:
+                for key, value in context["cookies"].values():
+                    response.set_cookie(key, value)
+
+            return response
         
         return wrapper
     

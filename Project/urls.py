@@ -1,7 +1,6 @@
 import home_app
 import registration_app
 import create_quiz_app
-import api
 
 home_app.homeApp.add_url_rule(
     rule='/',
@@ -34,19 +33,7 @@ registration_app.loginApp.add_url_rule(
 )
 
 create_quiz_app.createQuizApp.add_url_rule(
-    rule= '/create_quiz',
+    rule= '/quiz/<id>',
     view_func= create_quiz_app.render_create_quiz,
     methods = ['GET', 'POST']
-)
-
-create_quiz_app.createQuizApp.add_url_rule(
-    rule= '/create_quiz_api',
-    view_func= create_quiz_app.create_quiz_api,
-    methods = ['POST']
-)
-
-api.apiApp.add_url_rule(
-    rule= '/get_name',
-    view_func= api.send_name,
-    methods = ['POST']
 )
