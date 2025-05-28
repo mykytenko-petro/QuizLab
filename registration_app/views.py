@@ -3,7 +3,7 @@ from Project.settings import DATABASE
 from registration_app.core import login
 from .models import User
 
-async def render_registration():
+def render_registration():
     if flask.request.method == 'POST':
         if flask.request.form["password"] == flask.request.form["password_confirm"]:
             user = User(
@@ -23,7 +23,7 @@ async def render_registration():
         
     return flask.render_template("registration.html")
 
-async def render_login():
+def render_login():
     if flask.request.method == "POST":
         return login()
     
