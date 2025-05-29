@@ -73,8 +73,6 @@ class AssembleQuiz:
                 DATABASE.session.delete(question)
                 DATABASE.session.commit()
 
-                return {}
-
         return question.to_dict()
 
     @staticmethod
