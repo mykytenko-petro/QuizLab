@@ -1,6 +1,7 @@
 import home_app
 import registration_app
 import create_quiz_app
+import profile_app
 
 home_app.homeApp.add_url_rule(
     rule='/',
@@ -42,4 +43,9 @@ create_quiz_app.createQuizApp.add_url_rule(
     rule= '/question/<id>',
     view_func= create_quiz_app.render_create_quiz,
     methods = ['GET', 'POST']
+)
+profile_app.profileApp.add_url_rule(
+    rule= '/profile/<id>',
+    view_func= profile_app.render_profile,
+    methods = ['GET']
 )
