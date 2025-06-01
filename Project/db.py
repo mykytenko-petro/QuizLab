@@ -18,7 +18,7 @@ class BaseModel(DATABASE.Model):
     
     def to_dict(self):
         r"""
-            returns model representation as a dict
+            returns model representation as dict
             (relationships are not supported)
         """
 

@@ -3,10 +3,9 @@ import dotenv
 
 def assemble():
     # node modules 
-    os.system("npm install typescript --save-dev")
-    os.system("npm i --save-dev @types/jquery")
+    os.system("npm i")
 
-    # typescript building
+    # typescript compiling
     os.system("npx tsc --build .")
 
     # dotenv
