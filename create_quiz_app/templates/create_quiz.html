@@ -11,15 +11,13 @@
 {% endblock %}
 
 {% block content %}
-    <form id="quizSettings">
-        <input type="text" name="name">
-        <textarea name="description" id=""></textarea>
-        <button type="button" onclick="setQuizSettings()">save</button>
-    </form>
+    <div id="quizSettings"></div>
+
+    <br>
 
     <button type="button" onclick="deleteQuiz()">delete</button>
 
-    <button type="button" onclick="createQuestion()">create</button>
+    <button type="button" onclick="createQuestion()">create question</button>
 
     <div id="questions"></div>
 {% endblock %}

@@ -43,6 +43,17 @@ class AssembleQuiz:
                 DATABASE.session.commit()
 
                 return {}
+            
+            case "get":
+                quiz_dict = {}
+
+                quiz: Quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
+
+                quiz_dict.update(
+                    {
+                        "quiz": quiz.to_dict()
+                    }
+                )
 
         return quiz.to_dict()
 
@@ -79,7 +90,7 @@ class AssembleQuiz:
     def create_answer(data):
         match data["goal"]:
             case "create":
-                question = Question.query.filter_by(id= data["quiz_id"]).first()
+                question = Question.query.filter_by(id= data["question_id"]).first()
                 answer = Answer()
 
                 question.answers.append(answer)
@@ -88,7 +99,7 @@ class AssembleQuiz:
                 DATABASE.session.commit()
 
             case "edit":
-                answer: Answer = Answer.query.filter_by(id= data["quiz_id"]).first()
+                answer: Answer = Answer.query.filter_by(id= data["answer_id"]).first()
 
                 answer.description = data["description"]
                 answer.path_to_image = data["path_to_image"]
@@ -97,7 +108,7 @@ class AssembleQuiz:
                 DATABASE.session.commit()
 
             case "delete":
-                answer: Answer = Answer.query.filter_by(id= data["quiz_id"]).first()
+                answer: Answer = Answer.query.filter_by(id= data["answer_id"]).first()
 
                 DATABASE.session.delete(answer)
                 DATABASE.session.commit()
