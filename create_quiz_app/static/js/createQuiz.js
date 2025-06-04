@@ -1,6 +1,3 @@
-"use strict";
-;
-;
 function loadQuiz() {
     $.ajax({
         url: '/create_quiz_api',
@@ -29,7 +26,6 @@ function loadQuiz() {
         }
     });
 }
-;
 loadQuiz();
 function setQuizSettings() {
     let settingsDiv = document.querySelector("#quizSettings");
@@ -82,9 +78,7 @@ function setQuizSettings() {
             }
         });
     }
-    ;
 }
-;
 function deleteQuiz() {
     $.ajax({
         url: '/create_quiz_api',
@@ -94,7 +88,7 @@ function deleteQuiz() {
         data: JSON.stringify({
             goal: "delete",
             quiz_id: window.location.href.split("/").pop(),
-            quiz: {}
+            question: {}
         }),
         success: () => {
             window.location.replace("/");
@@ -104,7 +98,6 @@ function deleteQuiz() {
         }
     });
 }
-;
 function createQuestion() {
     $.ajax({
         url: '/create_quiz_api',
@@ -124,4 +117,4 @@ function createQuestion() {
         }
     });
 }
-;
+export {};

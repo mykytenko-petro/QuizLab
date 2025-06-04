@@ -1,10 +1,16 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@general/*": ["Project/static/ts/*"],
+        },
         "target": "es2019",
         "lib": ["es2019", "dom", "dom.iterable"],
     },
+    "rootDir": ".",
     "files": [],
     "references": [
-        { "path": "./create_quiz_app/static" }
+        { "path": "./create_quiz_app/static" },
+        { "path": "./Project/static" }
     ]
 }

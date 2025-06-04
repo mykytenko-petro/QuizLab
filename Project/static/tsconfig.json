@@ -1,10 +1,8 @@
 {
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "baseUrl": "./",
-        "paths": { "@quiz/*": ["ts/*"] },
-        "rootDir": "./ts",
-        "outDir": "./js",
+        "rootDir": "ts",
+        "outDir": "js",
         "strict": true
     },
     "declaration": false,
