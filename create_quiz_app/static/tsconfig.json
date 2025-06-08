@@ -1,10 +1,16 @@
 {
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "rootDir": "ts",
-        "outDir": "js",
-        "strict": true
+        "rootDir": "../../",
+        "outDir": "./js",
+        "strict": true,
+        "composite": true
     },
-    "declaration": false,
-    "include": ["ts/**/*.ts"]
+    "include": [
+        "ts/*.ts",
+        "../../Project/static/ts/DOM_utils.ts"
+    ],
+    "references": [
+        { "path": "../../Project/static" }
+    ]
 }

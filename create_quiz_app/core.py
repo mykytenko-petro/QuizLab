@@ -18,6 +18,9 @@ class AssembleQuiz:
 
     @staticmethod
     def create_quiz(data):
+        if "id" in data["quiz"]:
+            quiz: Quiz = Quiz.query.filter_by(id= data["quiz"]["id"]).first()
+        
         match data["goal"]:
             case "create":
                 quiz = Quiz()
@@ -28,8 +31,6 @@ class AssembleQuiz:
                 return flask.redirect(f"/quiz/{quiz.id}")
 
             case "edit":
-                quiz: Quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
-
                 quiz.name = data["quiz"]["name"]
                 quiz.description = data["quiz"]["description"]
 
@@ -37,8 +38,6 @@ class AssembleQuiz:
                 DATABASE.session.commit()
 
             case "delete":
-                quiz: Quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
-
                 DATABASE.session.delete(quiz)
                 DATABASE.session.commit()
 
@@ -46,14 +45,9 @@ class AssembleQuiz:
             
             case "get":
                 quiz_dict = {}
+                quiz_dict["quiz"] = quiz.to_dict()
 
-                quiz: Quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
-
-                quiz_dict.update(
-                    {
-                        "quiz": quiz.to_dict()
-                    }
-                )
+                return quiz_dict
 
         return quiz.to_dict()
 
@@ -61,7 +55,7 @@ class AssembleQuiz:
     def create_question(data):
         match data["goal"]:
             case "create":
-                quiz = Quiz.query.filter_by(id= data["quiz_id"]).first()
+                quiz = Quiz.query.filter_by(id= data["question"]["quiz_id"]).first()
                 question = Question()
 
                 quiz.questions.append(question)
@@ -70,16 +64,16 @@ class AssembleQuiz:
                 DATABASE.session.commit()
 
             case "edit":
-                question: Question = Question.query.filter_by(id= data["quiz_id"]).first()
+                question: Question = Question.query.filter_by(id= data["question"]["id"]).first()
 
-                question.description = data["description"]
-                question.path_to_image = data["path_to_image"]
+                question.description = data["question"]["description"]
+                question.path_to_image = data["question"]["path_to_image"]
 
                 DATABASE.session.add(question)
                 DATABASE.session.commit()
 
             case "delete":
-                question: Question = Question.query.filter_by(id= data["quiz_id"]).first()
+                question: Question = Question.query.filter_by(id= data["question"]["id"]).first()
 
                 DATABASE.session.delete(question)
                 DATABASE.session.commit()
@@ -90,7 +84,7 @@ class AssembleQuiz:
     def create_answer(data):
         match data["goal"]:
             case "create":
-                question = Question.query.filter_by(id= data["question_id"]).first()
+                question = Question.query.filter_by(id= data["answer"]["question_id"]).first()
                 answer = Answer()
 
                 question.answers.append(answer)
@@ -99,7 +93,7 @@ class AssembleQuiz:
                 DATABASE.session.commit()
 
             case "edit":
-                answer: Answer = Answer.query.filter_by(id= data["answer_id"]).first()
+                answer: Answer = Answer.query.filter_by(id= data["answer"]["id"]).first()
 
                 answer.description = data["description"]
                 answer.path_to_image = data["path_to_image"]
@@ -108,7 +102,7 @@ class AssembleQuiz:
                 DATABASE.session.commit()
 
             case "delete":
-                answer: Answer = Answer.query.filter_by(id= data["answer_id"]).first()
+                answer: Answer = Answer.query.filter_by(id= data["answer"]["id"]).first()
 
                 DATABASE.session.delete(answer)
                 DATABASE.session.commit()

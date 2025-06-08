@@ -1,7 +1,6 @@
-import type { QuizOutput, ApiOutput } from "./types"
-import { createButton } from "@general/DOM_utils"
+import type { QuestionOutput, ApiOutput } from "./types"
 
-function loadQuiz() {
+function loadQuestion() {
     $.ajax(
         {
             url: '/create_quiz_api',
@@ -12,10 +11,10 @@ function loadQuiz() {
                 {
                     goal: "get",
                     quiz_id: window.location.href.split("/").pop(),
-                    quiz: {},
+                    question: {},
                 }
             ),
-            success: (data : QuizOutput) => {
+            success: (data : QuestionOutput) => {
                 let settingsDiv = document.querySelector("#quizSettings") as HTMLDivElement
 
                 settingsDiv.innerHTML = `
@@ -25,7 +24,7 @@ function loadQuiz() {
 
                 let buttonElement = document.createElement("button")
                 buttonElement.type = "button"
-                buttonElement.onclick = () => { setQuizSettings() }
+                buttonElement.onclick = () => { setQuestionSettings() }
                 buttonElement.textContent = "edit"
 
                 settingsDiv.appendChild(buttonElement)
@@ -37,9 +36,9 @@ function loadQuiz() {
     )
 }
 
-loadQuiz()
+loadQuestion()
 
-function setQuizSettings() {
+function setQuestionSettings() {
     let settingsDiv = document.querySelector("#quizSettings") as HTMLDivElement
 
     if (settingsDiv.querySelector("p")) {
@@ -53,7 +52,7 @@ function setQuizSettings() {
 
         let buttonElement = document.createElement("button")
         buttonElement.type = "button"
-        buttonElement.onclick = () => { setQuizSettings() }
+        buttonElement.onclick = () => { setQuestionSettings() }
         buttonElement.textContent = "save"
 
         let formElement = document.createElement("form") as HTMLFormElement
@@ -83,14 +82,14 @@ function setQuizSettings() {
                         quiz: formData
                     }
                 ),
-                success: (data : QuizOutput) => {
+                success: (data : QuestionOutput) => {
                     settingsDiv.innerHTML = `
                         <p>${data.name}</p>
                         <p>${data.description}</p>
                     `
                     let buttonElement = document.createElement("button")
                     buttonElement.type = "button"
-                    buttonElement.onclick = () => { setQuizSettings() }
+                    buttonElement.onclick = () => { setQuestionSettings() }
                     buttonElement.textContent = "edit"
 
                     settingsDiv.appendChild(buttonElement)
@@ -103,7 +102,7 @@ function setQuizSettings() {
     }
 }
 
-function deleteQuiz() {
+function deleteQuestion() {
     $.ajax(
         {
             url: '/create_quiz_api',
@@ -127,7 +126,7 @@ function deleteQuiz() {
     )
 }
 
-function createQuestion() {
+function createAnswer() {
     $.ajax(
         {
             url: '/create_quiz_api',

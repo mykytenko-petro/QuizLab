@@ -6,7 +6,7 @@ def assemble():
     os.system("npm i")
 
     # typescript compiling
-    os.system("npx tsc --build .")
+    os.system("npx tsc -b")
 
     # dotenv
     DOTENV_PATH = os.path.abspath(os.path.join(__file__, "..", "..", ".env"))

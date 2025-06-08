@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}create quiz{% endblock %}
+
+{% block links %}
+    <!-- <link rel="stylesheet" href="{{ url_for('createQuiz.static', filename='css/home.css') }}">     -->
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('createQuiz.static', filename='js/createQuestion.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="questionSettings"></div>
+
+    <br>
+
+    <button type="button" onclick="deleteQuestion()">delete</button>
+
+    <button type="button" onclick="createAnswer()">create question</button>
+
+    <div id="answers"></div>
+{% endblock %}
