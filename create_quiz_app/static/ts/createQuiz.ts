@@ -1,15 +1,5 @@
-// import { createButton } from "@general/DOM_utils.js"
-
-interface QuizOutput {
-    id: number
-    name: string
-    description: string
-}
-
-interface ApiOutcome {
-    quiz?: QuizOutput
-    id?: number
-}
+import type { QuizOutput, ApiOutput } from "./types"
+import { createButton } from "@general/DOM_utils"
 
 function loadQuiz() {
     $.ajax(
@@ -151,7 +141,7 @@ function createQuestion() {
                     question: {}
                 }
             ),
-            success: (data : ApiOutcome) => {
+            success: (data : ApiOutput) => {
                 window.location.replace(`/question/${data.id}`)
             },
             error: (error : Object) => {

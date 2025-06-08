@@ -1,13 +1,4 @@
-interface QuestionOutput {
-    id: number
-    name: string
-    description: string
-}
-
-interface ApiOutcome {
-    question?: QuestionOutput
-    id?: number
-}
+import type { QuestionOutput, ApiOutput } from "./types"
 
 function loadQuestion() {
     $.ajax(
@@ -149,7 +140,7 @@ function createAnswer() {
                     question: {}
                 }
             ),
-            success: (data : ApiOutcome) => {
+            success: (data : ApiOutput) => {
                 window.location.replace(`/question/${data.id}`)
             },
             error: (error : Object) => {
