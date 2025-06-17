@@ -8,6 +8,7 @@ class Quiz(BaseModel):
 
     name = DB.Column(DB.String(50), nullable = True)
     description = DB.Column(DB.String(256), nullable = True)
+    image = DB.Column(DB.String(256), nullable = True)
 
     questions = DB.relationship('Question', backref = 'quiz', cascade='all, delete-orphan')
 
@@ -18,7 +19,7 @@ class Question(BaseModel):
     quiz_id = DB.Column(DB.Integer, DB.ForeignKey('quiz.id'), nullable = False)
 
     description = DB.Column(DB.String(256), nullable = True)
-    path_to_image = DB.Column(DB.String(256), nullable = True)
+    image = DB.Column(DB.String(256), nullable = True)
     
     answers = DB.relationship('Answer', backref = 'question', cascade='all, delete-orphan')
 
@@ -29,5 +30,5 @@ class Answer(BaseModel):
     question_id = DB.Column(DB.Integer, DB.ForeignKey('question.id'), nullable = False)
 
     description = DB.Column(DB.String(256), nullable = True)
-    path_to_image = DB.Column(DB.String(256), nullable = True)
+    image = DB.Column(DB.String(256), nullable = True)
     is_right = DB.Column(DB.Boolean, default = False, nullable = True)

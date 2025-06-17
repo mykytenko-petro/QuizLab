@@ -7,6 +7,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>2232</h1>
     <a href="/create_quiz_api">create quiz</a>
+    
+    {% if user %}
+        {% for quiz in user.quizzes %}
+            <div>
+                <h2>{{ quiz.name }}</h2>
+                <a href="/quiz/{{ quiz.id }}">edit</a>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

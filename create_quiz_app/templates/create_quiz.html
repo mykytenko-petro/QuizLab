@@ -7,17 +7,13 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('createQuiz.static', filename='js/createQuiz.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/createQuiz.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/utils.js') }}"></script>
 {% endblock %}
 
 {% block content %}
-    <form id="quizSettings">
-        <input type="text" name="name">
-        <textarea name="description" id=""></textarea>
-        <button type="button" onclick="setQuizSettings()">save</button>
-    </form>
-
-    <button type="button" onclick="deleteQuiz()">delete</button>
-
+    <div class="quizSettings"></div>
+    <button type="button" class="deleteQuiz">delete</button>
+    <button type="button" class="createQuestion">create question</button>
     <div id="questions"></div>
 {% endblock %}

@@ -45,7 +45,7 @@ def page_config(template_name : str):
             user = flask_login.current_user if flask_login.current_user.is_authenticated else None
             print(user)
 
-            context: dict = func(*agrs, **kwargs) if func(*agrs, **kwargs) else {}
+            context: dict = func(*agrs, **kwargs) or {}
             print("context:", context)
 
             if "redirect" in context:
