@@ -1,19 +1,9 @@
 import flask
 import flask_login
 import json
-from flask import Flask, render_template, request
 from os.path import abspath, join
 from Project.db import DATABASE
 from .models import Quiz, Question, Answer
-
-app = Flask(__name__)
-
-@app.route('/', methods=['GET', 'POST'])
-def my_form():
-    if request.method == 'POST':
-        name = request.form['name']
-        return render_template('.html', name=name)
-    return render_template('.html')
 
 def handle_quiz_data(data : dict | None = None):
     if not data:
@@ -58,7 +48,7 @@ def handle_quiz_data(data : dict | None = None):
             flask_login.current_user.quizzes.append(quiz)
             DATABASE.session.commit()
 
-            return flask.redirect(f"/quiz/{quiz.id}")
+            return { "id": quiz.id }
         
     elif "question" in json_data:
         ...

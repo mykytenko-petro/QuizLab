@@ -7,5 +7,3 @@ from create_quiz_app.core import handle_quiz_data
 def create_quiz_api():
     if flask.request.method == "POST":
         return handle_quiz_data()
-
-    return handle_quiz_data(data= {"goal": "create", "quiz": {}})
