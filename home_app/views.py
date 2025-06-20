@@ -1,6 +1,6 @@
-import flask
+from Project.utils import toggle, page_config
 
-
-#Функція що відображає сторінку  home
-async def render_home():
-    return flask.render_template("home.html")
+@toggle(name_of_bp="homeApp")
+@page_config(template_name= "home.html")
+def render_home():
+    return None

@@ -1,97 +1,95 @@
 import flask
 import flask_login
+import secrets
 from Project.db import DATABASE
-#from Project.core import toggle
+from Project.utils import toggle, send_email, page_config
 from .models import User
-#registration_app.views import send_email
 
-from flask_mail import Message
-#from app import mail
-
-
-
-
-async def render_registration():
+@toggle(name_of_bp= "registrationApp")
+@page_config(template_name= "registration.html")
+def render_registration():
     if flask.request.method == 'POST':
-        password = flask.request.form["password"]
-        confirm_password = flask.request.form["password_confirm"]
-
-        list_users = User.query.all()
-        for user in list_users:
-            if user.email == flask.request.form["email"]:
+        form = flask.request.form
+        
+        if form['login']:
+            if User.query.filter_by(email=form["email"]).first():
                 message = "Така почта вже існує"
 
-        if message == "":   
-            if password == confirm_password:
-                user = User(
-                    login = flask.request.form['login'], 
-                    password = password, 
-                    email = flask.request.form["email"], 
-                    is_admin = False
-                )
-        
-                try:
-                    
-                    
-                    def index():
-                        msg = Message(
-                            subject="Hello",
-                            sender="italymay20@gmai.com",
-                            recipients=["timagreen2010@gmail.com"],
-                        )
-                    index()
-                    
-                    #def send_email(subject, sender, recipients, text_body, html_body):
-                    #        mail = ("123123")
-                    #        msg = Message(subject, sender=sender, recipients=recipients)
-                    #        msg.body = text_body
-                    #        msg.html = html_body
-                    #        mail.send(msg)
-                    #send_email(
-                    #    subject="s", 
-                    #    sender="italymay20@gmail.com", 
-                    #    recipients=["timagreen2010@gmail.com"],
-                    #    text_body= flask.render_template('email/reset_password.txt', user=user, token=token),
-                    #    html_body= flask.render_template('email/reset_password.html', user=user, token=token)) 
-                    #
-                    # send_email(
-                    #     subject = "First try",                      
-                    #     recipients = flask.request.form["email"],
-                    #     text_body = "2232"
-
-                    # )
-                    DATABASE.session.add(user)
-                    DATABASE.session.commit()
-
-                    message = 'Успішна реєстрація'
-                    
-                    return render_login()
-
-                except Exception as error:
-                    return str(error)
+            elif not form["password"] == form["password_confirm"]:
+                message = 'Паролі не співпадають'       
+                
             else:
-                message = 'Паролі не співпадають'
-        
-    return flask.render_template("registration.html")
+                confirmation_code = secrets.token_hex(6)
 
-async def render_login():
-    if flask.request.method == "POST":
-        email_form = flask.request.form["email"]
-        password_form = flask.request.form["password"]
+                flask.session["registration_input_data"] = {
+                    "login": form['login'],
+                    "password": form["password"],
+                    "email": form["email"],
+                    "confirmation_code": confirmation_code
+                }
 
-        list_users = User.query.all()
-        for user in list_users:
-            if user.email == email_form and user.password == password_form:
+                send_email(
+                    subject= 'Confirmation code',
+                    recipients= [form['email']],
+                    html= flask.render_template(
+                        template_name_or_list= "email_confirmation_in_mail.html",
+                        confirmation_code= confirmation_code
+                    )
+                )
+
+                return {"redirect": "/code_confirmation"}
+            
+            return {"message": message}
+
+@toggle(name_of_bp= "registrationApp")
+@page_config(template_name= "email_confirmation.html")
+def render_code_confirmation():
+    if flask.request.method == 'POST':
+        form = flask.request.form
+        session_data = flask.session["registration_input_data"]
+                
+        if form["confirmation_code"] == session_data["confirmation_code"]:
+            user = User(
+                login = session_data['login'], 
+                password = session_data["password"],
+                email = session_data["email"],
+                is_admin = False
+            )
+            flask.session.pop("registration_input_data")
+
+            try:
+                DATABASE.session.add(user)
+                DATABASE.session.commit()
+                
                 flask_login.login_user(user)
-    
-    if not flask_login.current_user.is_authenticated:
+                
+                return {"redirect": "/"}
+            except Exception as error:
+                print(error)
+        else:
+            message = "неправильний код"
 
-        return flask.render_template(template_name_or_list = "login.html")
-    else:
-        # flask.logging.render_user()
-        return flask.redirect('/')
+        return {"message": message}
+
+@toggle(name_of_bp="loginApp")
+@page_config(template_name= "login.html")
+def render_login():
+    if flask.request.method == "POST":
+        form = flask.request.form
+        
+        users_list = User.query.all()
+        for user in users_list:
+            if user.email == form["email"] and user.password == form["password"]:
+                flask_login.login_user(user)
+                return {"redirect": "/"}
+        else:
+            if not User.query.filter_by(email=form["email"]).first():
+                message = 'такої пошти не існує'
+            else:
+                message = 'неправильний код'
     
-def render_logout():
+        return {"message": message}
+    
+def logout():
     flask.session.clear()
     return flask.redirect('/')
-

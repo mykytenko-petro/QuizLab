@@ -4,10 +4,6 @@
     registration
 {% endblock %}
 
-{% block header %}
-    <!-- <link rel="stylesheet" href="{{ url_for('registration.static', filename = 'static/css/styles2.css')  }}"> -->
-{% endblock %}
-
 {% block content %}
     <form method="post">
         <p class="login">Login</p>
@@ -16,7 +12,7 @@
         <p class="email">Email</p>
         <input type="email" name="email" required>
 
-        <p class = "password">Password</p>
+        <p class="password">Password</p>
         <input type="password" name="password" required>
 
         <p class = "password">Password_confirm</p>
@@ -24,4 +20,6 @@
 
         <button>SEND</button>
     </form>
+
+    <h1>{{ message }}</h1>
 {% endblock %}

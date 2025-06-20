@@ -4,11 +4,21 @@
 
 {% block links %}
     <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">
-    
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="{{ url_for('home.static', filename='js/home.js') }}"></script>
 {% endblock %}
 
 {% block content %}
-    <h1>2232</h1>
-    <a href="/create_quiz">create_quiz</a>
-    <a href="/registration">registration</a>
+    <button type="button" class="createQuiz">create quiz</button>
+    
+    {% if user %}
+        {% for quiz in user.quizzes %}
+            <div>
+                <h2>{{ quiz.name }}</h2>
+                <a href="/quiz/{{ quiz.id }}">edit</a>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

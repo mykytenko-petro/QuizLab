@@ -3,4 +3,3 @@ from .app import homeApp
 
 #З файлу views імпортуємо функцію render_home
 from .views import render_home
-

@@ -1,6 +1,5 @@
 import flask
 
-#Створеня застосунку homeApp.
 homeApp = flask.Blueprint(
     name = "home", #Назва додатку
     import_name = "home_app", #Папка, в якій знаходиться наш додаток
