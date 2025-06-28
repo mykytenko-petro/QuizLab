@@ -5,14 +5,18 @@
 {% block links %}{% endblock %}
 
 {% block scripts %}
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/createQuiz.js') }}"></script>
-    <script type="module" src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/question/createQuestion.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/question/renderQuestion.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/answer/createAnswer.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/answer/renderAnswer.js') }}"></script>
 {% endblock %}
 
 {% block content %}
-    <div class="createQuestion"></div>
-    <button type="button" class="deleteQuestion">delete</button>
-
-  
-    <div id="questions"></div>
+    <a href="/" class="backButton">back</a>
+    
+    <div class="questionSettings"></div>
+    
+    <button type="button" class="createAnswer">create answer</button>
+    
+    <div class="answers"></div>
 {% endblock %}

@@ -1,44 +1,6 @@
-import { ajaxPostRequest } from "./quizUtils.js"
-import { getSlug, redirectInApp } from "/static/js/utils.js"
+import { getSlug, redirectInApp, ajaxPostRequest } from "/static/js/utils.js"
 
-function loadQuiz() {
-    let dataToSend = new FormData()
-    dataToSend.append(
-        "data",
-        JSON.stringify(
-            {
-                goal: "get",
-                quiz: {
-                    id: getSlug()
-                }
-            }
-        )
-    )
-
-    ajaxPostRequest(
-        dataToSend,
-        (data) => {
-            const settingsDiv = document.querySelector(".quizSettings")
-
-            settingsDiv.innerHTML = `
-                <p>${data.name}</p>
-                <p>${data.description}</p>
-                <img src="/static/media/images/${data.image}" alt="">
-            `
-
-            const buttonElement = document.createElement("button")
-            buttonElement.type = "button"
-            buttonElement.onclick = () => { setQuizSettings() }
-            buttonElement.textContent = "edit"
-
-            settingsDiv.appendChild(buttonElement)
-        },
-    )
-}
-
-loadQuiz()
-
-function setQuizSettings() {
+export function setQuizSettings() {
     const settingsDiv = document.querySelector(".quizSettings")
 
     if (!settingsDiv.querySelector(".quizSettingsForm")) {
@@ -67,8 +29,6 @@ function setQuizSettings() {
         settingsDiv.appendChild(buttonElement)
 
     } else {
-        let dataToSend = new FormData()
-
         let json_data = {
             goal: "edit", 
             quiz: Object.assign(
@@ -82,22 +42,20 @@ function setQuizSettings() {
                 )
             )
         }
-
-        console.log(json_data)
-
-        dataToSend.append("data", JSON.stringify(json_data))
-
         const img = document.querySelector('.quizImageInput')
 
-        dataToSend.append("image", img.files[0])
-
         ajaxPostRequest(
-            dataToSend,
+            "/create_quiz_api",
+            json_data,
             (data) => {
                 settingsDiv.innerHTML = `
                     <p>${data.name}</p>
                     <p>${data.description}</p>
-                    <img src="/static/media/images/${data.image}" alt="">
+
+                    ${(data.image === "default.png")
+                        ? `<img src="/static/icons/default.png" alt="">`
+                        : `<img src="/static/media/images/${data.image}" alt="image not found">`
+                    }
                 `
 
                 const buttonElement = document.createElement("button")
@@ -106,42 +64,27 @@ function setQuizSettings() {
                 buttonElement.textContent = "edit"
 
                 settingsDiv.appendChild(buttonElement)
-            }
+            },
+            img.files[0]
         )
+        
     }
 }
-
-const deleteButton = document.querySelector(".deleteQuiz")
-deleteButton.addEventListener(
-    "click",
-    () => {
-        ajaxPostRequest(
-            {
-                goal: "delete",
-                quiz: {
-                    id: getSlug()
-                }
-            },
-            () => {
-                redirectInApp("/")
-            }
-        )
-    }
-)
 
 const createQuestionButton = document.querySelector(".createQuestion")
 createQuestionButton.addEventListener(
     "click",
     () => {
         ajaxPostRequest(
+            "/create_quiz_api",
             {
-                goal: "create",
                 quiz_id: getSlug(),
+                goal: "create",
                 question: {}
             },
-            () => {
-                redirectInApp("/")
-            }
+            (data) => {
+                redirectInApp(`/question/${data.id}`)
+            },
         )
     }
 )
