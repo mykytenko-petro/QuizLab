@@ -37,3 +37,9 @@ create_quiz_app.createQuizApp.add_url_rule(
     view_func= create_quiz_app.render_create_quiz,
     methods = ['GET', 'POST']
 )
+
+create_quiz_app.createQuizApp.add_url_rule(
+    rule= '/question/<id>',
+    view_func= create_quiz_app.render_create_question,
+    methods = ['GET', 'POST']
+)

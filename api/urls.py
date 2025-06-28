@@ -6,5 +6,5 @@ from .core import (
 apiApp.add_url_rule(
     rule= '/create_quiz_api',
     view_func= create_quiz_api,
-    methods = ['GET', 'POST']
+    methods = ['POST']
 )

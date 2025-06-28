@@ -7,13 +7,15 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/createQuiz.js') }}"></script>
-    <script type="module" src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/quiz/createQuiz.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/quiz/renderQuiz.js') }}"></script>
 {% endblock %}
 
 {% block content %}
     <div class="quizSettings"></div>
+
     <button type="button" class="deleteQuiz">delete</button>
     <button type="button" class="createQuestion">create question</button>
-    <div id="questions"></div>
+    
+    <div class="questions"></div>
 {% endblock %}

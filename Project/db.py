@@ -16,7 +16,7 @@ class BaseModel(DATABASE.Model):
 
     __abstract__ = True
     
-    def to_dict(self):
+    def to_dict(self) -> dict:
         r"""
             returns model representation as a dict
             (relationships are not supported)

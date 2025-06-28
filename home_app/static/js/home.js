@@ -1,4 +1,4 @@
-import { ajaxPostRequest } from "/create_quiz/static/js/quizUtils.js"
+import { ajaxPostRequest } from "/static/js/utils.js"
 import { redirectInApp } from "/static/js/utils.js"
 
 const createButton = document.querySelector(".createQuiz")
@@ -11,9 +11,7 @@ createButton.addEventListener(
             JSON.stringify(
                 {
                     goal: "create",
-                    quiz: {
-                        
-                    }
+                    quiz: {}
                 }
             )
         )
