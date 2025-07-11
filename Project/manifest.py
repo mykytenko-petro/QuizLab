@@ -3,6 +3,13 @@ import os
 import dotenv
 
 def assemble():
+    # node modules 
+    os.system("npm install")
+
+    # typescript building
+    os.system("npm run build")
+
+    # dotenv
     DOTENV_PATH = os.path.abspath(os.path.join(__file__, "..", "..", ".env"))
 
     if os.path.exists(path= DOTENV_PATH):

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es2019",
+        "lib": ["es2019", "dom", "dom.iterable"],
+
+        "rootDir": ".",
+        "outDir": "Project/dist",
+    },
+    "include": ["**/*.ts"],
+    "tsc-alias": {
+        "resolveFullPaths": true,
+        "replaceExtensions": {
+            ".ts": ".js"
+        },
+        "addExtensions": true
+    }
+}
