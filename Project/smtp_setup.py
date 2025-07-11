@@ -1,5 +1,7 @@
-import flask_mail
 import os
+
+import flask_mail
+
 from .settings import project
 
 project.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -11,3 +13,13 @@ project.config['MAIL_USE_SSL'] = False
 project.config['MAIL_USE_TLS'] = True
 
 mail = flask_mail.Mail(app = project)
+
+def send_email(subject : str, recipients : list, *agrs, **kwargs):
+    msg = flask_mail.Message(
+        subject= subject,
+        recipients= recipients,
+        *agrs,
+        **kwargs
+    )
+
+    mail.send(msg)

@@ -5,9 +5,9 @@
 {% block links %}{% endblock %}
 
 {% block scripts %}
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/question/createQuestion.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/question/CRUDQuestion.js') }}"></script>
     <script type="module" src="{{ url_for('createQuiz.static', filename='js/question/renderQuestion.js') }}"></script>
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/answer/createAnswer.js') }}"></script>
+    <script type="module" src="{{ url_for('createQuiz.static', filename='js/answer/CRUDAnswer.js') }}"></script>
     <script type="module" src="{{ url_for('createQuiz.static', filename='js/answer/renderAnswer.js') }}"></script>
 {% endblock %}
 
