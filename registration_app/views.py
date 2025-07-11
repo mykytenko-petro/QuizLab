@@ -1,8 +1,11 @@
+import secrets
+
 import flask
 import flask_login
-import secrets
+
 from Project.db import DATABASE
-from Project.utils import toggle, send_email, page_config
+from Project.utils import toggle, page_config
+from Project.smtp_setup import send_email
 from .models import User
 
 @toggle(name_of_bp= "registrationApp")

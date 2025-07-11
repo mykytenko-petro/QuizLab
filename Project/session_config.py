@@ -1,5 +1,7 @@
-import flask_session
 import datetime
+
+import flask_session
+
 from .settings import project
 from .db import DATABASE
 

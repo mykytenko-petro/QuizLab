@@ -1,9 +1,8 @@
 import os
-import flask
-import flask_mail
-import flask_login
 import functools
-from .smtp_setup import mail
+
+import flask
+import flask_login
 
 def toggle(name_of_bp):
     def inner(func):
@@ -74,12 +73,13 @@ def page_config(template_name : str):
     
     return inner
 
-def send_email(subject : str, recipients : list, *agrs, **kwargs):
-    msg = flask_mail.Message(
-        subject= subject,
-        recipients= recipients,
-        *agrs,
-        **kwargs
+def get_media_path() -> str:
+    path = os.path.abspath(
+        path=os.path.join(
+            __file__,
+            "..",
+            "static", "media"
+        )
     )
 
-    mail.send(msg)
+    return path

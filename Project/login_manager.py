@@ -1,6 +1,7 @@
 import flask_login
-from .settings import project
+
 from registration_app.models import User
+from .settings import project
 
 login_manager = flask_login.LoginManager(app = project)
 

@@ -1,26 +1,4 @@
-import { ajaxPostRequest } from "/static/js/utils.js"
-import { redirectInApp } from "/static/js/utils.js"
+import { createQuiz } from "/create_quiz/static/js/quiz/CRUDQuiz.js"
 
-const createButton = document.querySelector(".createQuiz")
-createButton.addEventListener(
-    "click",
-    () => {
-        let dataToSend = new FormData()
-        dataToSend.append(
-            "data",
-            JSON.stringify(
-                {
-                    goal: "create",
-                    quiz: {}
-                }
-            )
-        )
-
-        ajaxPostRequest(  
-            dataToSend,
-            (data) => {
-                redirectInApp(`/quiz/${data.id}`)
-            }
-        )
-    }
-)
+const createQuizButton = document.querySelector(".createQuiz")
+createQuizButton.addEventListener("click", () => { createQuiz() })

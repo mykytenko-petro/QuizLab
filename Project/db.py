@@ -1,7 +1,9 @@
+import os
+
 import flask_migrate
 import flask_sqlalchemy
 import sqlalchemy
-import os
+
 from .settings import project
 
 project.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"

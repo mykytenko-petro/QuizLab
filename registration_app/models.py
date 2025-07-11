@@ -1,7 +1,7 @@
+import flask_login
 from Project.db import BaseModel, DATABASE as DB
-from flask_login import UserMixin
 
-class User(BaseModel, UserMixin):
+class User(BaseModel, flask_login.UserMixin):
     __tablename__ = "user"
 
     id = DB.Column(DB.Integer, primary_key = True)
