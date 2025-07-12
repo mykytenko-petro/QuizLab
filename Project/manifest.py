@@ -6,7 +6,7 @@ def assemble():
     # node modules 
     os.system("npm install")
 
-    # typescript building
+    # typescript compiling
     os.system("npm run build")
 
     # dotenv

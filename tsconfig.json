@@ -5,8 +5,20 @@
 
         "rootDir": ".",
         "outDir": "Project/dist",
+
+        "skipLibCheck": true,
+
+        "baseUrl": ".",
+        "paths": {
+            "@types": ["Project/static/ts/types/index.ts"],
+            
+            "@DOMUtils": ["Project/static/ts/utils/DOMUtils/index.ts"],
+            "@ajaxUtils": ["Project/static/ts/utils/ajaxUtils/index.ts"],
+            "@utils": ["Project/static/ts/utils/utils/index.ts"],
+        }
     },
     "include": ["**/*.ts"],
+    "exclude": ["node_modules"],
     "tsc-alias": {
         "resolveFullPaths": true,
         "replaceExtensions": {
