@@ -3,9 +3,11 @@ from .urls import *
 from .settings import project
 from .login_manager import *
 from .session_config import *
+from .typescript_setup import typescriptManagerApp
 
 import api
 
+project.register_blueprint(typescriptManagerApp)
 project.register_blueprint(home_app.homeApp)
 project.register_blueprint(registration_app.registrationApp)
 project.register_blueprint(registration_app.loginApp)

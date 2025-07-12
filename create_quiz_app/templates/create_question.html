@@ -5,10 +5,10 @@
 {% block links %}{% endblock %}
 
 {% block scripts %}
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/question/CRUDQuestion.js') }}"></script>
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/question/renderQuestion.js') }}"></script>
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/answer/CRUDAnswer.js') }}"></script>
-    <script type="module" src="{{ url_for('createQuiz.static', filename='js/answer/renderAnswer.js') }}"></script>
+    <script type="module" src="{{ url_for('ts.static', filename='create_quiz_app/static/ts/question/CRUDQuestion.js') }}"></script>
+    <script type="module" src="{{ url_for('ts.static', filename='create_quiz_app/static/ts/question/renderQuestion.js') }}"></script>
+    <script type="module" src="{{ url_for('ts.static', filename='create_quiz_app/static/ts/answer/CRUDAnswer.js') }}"></script>
+    <script type="module" src="{{ url_for('ts.static', filename='create_quiz_app/static/ts/answer/renderAnswer.js') }}"></script>
 {% endblock %}
 
 {% block content %}

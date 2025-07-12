@@ -5,7 +5,8 @@ def main():
         Project.assemble()
         Project.project.run(
             debug=True,
-            port=2232
+            port=2232,
+            use_reloader=False
         )
     except Exception as error:
         print(error)
