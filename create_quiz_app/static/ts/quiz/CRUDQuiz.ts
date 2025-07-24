@@ -22,7 +22,7 @@ function renderQuiz(data : QuizPayload) {
     if (data.image === "default.png") {
         iconImg.src = "/static/icons/default.png"
     } else {
-        iconImg.src = `/static/media/images/${data.image}`
+        iconImg.src = `/media/images/${data.image}`
         iconImg.alt = "image not found"
     }
 

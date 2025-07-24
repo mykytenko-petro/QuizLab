@@ -20,7 +20,7 @@ function renderQuestion(data : QuestionPayload) {
     console.log(!(data.image === ""))
     if (!(data.image === "")) {
         const iconImg = document.createElement("img")
-        iconImg.src = `/static/media/images/${data.image}`
+        iconImg.src = `/media/images/${data.image}`
         iconImg.alt = "image not found"
         settingsDiv.append(iconImg)
     }
@@ -50,7 +50,7 @@ export function loadQuestions() {
 
                 if (!(question.image === "")) {
                     const iconImg = document.createElement("img")
-                    iconImg.src = `/static/media/images/${question.image}`
+                    iconImg.src = `/media/images/${question.image}`
                     iconImg.alt = "image not found"
                     questionDiv.appendChild(iconImg)
                 }

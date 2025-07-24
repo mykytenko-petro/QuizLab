@@ -19,7 +19,7 @@ function loadAnswer(data : AnswerPayload) {
 
     if (!(data.image === "")) {
         const iconImg = document.createElement("img")
-        iconImg.src = `/static/media/images/${data.image}`
+        iconImg.src = `/media/images/${data.image}`
         iconImg.alt = "image not found"
         answerDiv.append(iconImg)
     }
@@ -59,7 +59,7 @@ export function loadAnswers() {
 
                 if (!(answer.image === "")) {
                     const iconImg = document.createElement("img")
-                    iconImg.src = `/static/media/images/${answer.image}`
+                    iconImg.src = `/media/images/${answer.image}`
                     iconImg.alt = "image not found"
                     answerDiv.append(iconImg)
                 }

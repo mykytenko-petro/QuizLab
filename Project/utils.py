@@ -78,7 +78,7 @@ def get_media_path() -> str:
         path=os.path.join(
             __file__,
             "..",
-            "static", "media"
+            "media"
         )
     )
 
