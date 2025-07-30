@@ -2,7 +2,23 @@ import os
 
 import dotenv
 
+
 def assemble():
+    # media
+    os.makedirs(
+        os.path.abspath(os.path.join(
+            __file__, "..", "media", "images"
+        )),
+        exist_ok=True
+    )
+
+    os.makedirs(
+        os.path.abspath(os.path.join(
+            __file__, "..", "media", "sounds"
+        )),
+        exist_ok=True
+    )
+
     # node modules 
     os.system("npm install")
 

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}home{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="/js/home/static/ts/home.js"></script>
+{% endblock %}
+
+{% block content %}
+    <button type="button" class="createQuiz">create quiz</button>
+    
+    {% if user %}
+        {% for quiz in user.quizzes %}
+            <div>
+                <h2>{{ quiz.name }}</h2>
+                <a href="/quiz/{{ quiz.id }}">edit</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

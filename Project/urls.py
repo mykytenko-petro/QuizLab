@@ -1,45 +1,46 @@
-import home_app
-import registration_app
-import create_quiz_app
+import home
+import user
+import quiz
 
-home_app.homeApp.add_url_rule(
+
+home.homeApp.add_url_rule(
     rule='/',
-    view_func=home_app.render_home,
+    view_func=home.render_home,
     methods = ['GET']
 )
 
-registration_app.registrationApp.add_url_rule(
+user.registrationApp.add_url_rule(
     rule='/registration',
-    view_func=registration_app.render_registration,
+    view_func=user.render_registration,
     methods=['GET', 'POST']
 )
 
-registration_app.registrationApp.add_url_rule(
+user.registrationApp.add_url_rule(
     rule='/code_confirmation',
-    view_func=registration_app.render_code_confirmation,
+    view_func=user.render_code_confirmation,
     methods=['GET', 'POST']
 )
 
-registration_app.loginApp.add_url_rule(
+user.loginApp.add_url_rule(
     rule = '/login',
-    view_func = registration_app.render_login,
+    view_func = user.render_login,
     methods = ['GET','POST']
 )
 
-registration_app.loginApp.add_url_rule(
+user.loginApp.add_url_rule(
     rule= '/logout',
-    view_func= registration_app.logout,
+    view_func= user.logout,
     methods = ['GET']
 )
 
-create_quiz_app.createQuizApp.add_url_rule(
+quiz.createQuizApp.add_url_rule(
     rule= '/quiz/<id>',
-    view_func= create_quiz_app.render_create_quiz,
+    view_func= quiz.render_create_quiz,
     methods = ['GET', 'POST']
 )
 
-create_quiz_app.createQuizApp.add_url_rule(
+quiz.createQuizApp.add_url_rule(
     rule= '/question/<id>',
-    view_func= create_quiz_app.render_create_question,
+    view_func= quiz.render_create_question,
     methods = ['GET', 'POST']
 )

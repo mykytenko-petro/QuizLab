@@ -3,6 +3,7 @@ import secrets
 
 import flask
 
+
 project = flask.Flask(
     import_name="Project",
     static_url_path="/static",

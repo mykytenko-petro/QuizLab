@@ -1,6 +1,6 @@
 import flask
 
-from create_quiz_app.core import (
+from quiz.core.create_quiz import (
     quiz_handle,
     question_handle,
     answer_handle

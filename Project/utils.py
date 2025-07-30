@@ -1,14 +1,16 @@
 import os
 import functools
+from typing import Callable
 
 import flask
 import flask_login
 
-def toggle(name_of_bp):
-    def inner(func):
+
+def toggle(name_of_feature : str):
+    def inner(func : Callable):
         @functools.wraps(func)
         def wrapper(*agrs, **kwargs):
-            if not os.getenv(name_of_bp) or os.getenv(name_of_bp) == "TRUE":
+            if not os.getenv(name_of_feature) or os.getenv(name_of_feature) == "TRUE":
                 return func(*agrs, **kwargs)
             else:
                 return flask.render_template("page_not_found.html")
@@ -17,7 +19,7 @@ def toggle(name_of_bp):
 
     return inner
 
-def login_required(func):
+def login_required(func : Callable):
     @functools.wraps(func)
     def wrapper(*agrs, **kwargs):
         if flask_login.current_user.is_authenticated:
@@ -27,7 +29,7 @@ def login_required(func):
     
     return wrapper
 
-def admin_required(func):
+def admin_required(func : Callable):
     @functools.wraps(func)
     def wrapper(*agrs, **kwargs):
         if flask_login.current_user.is_authenticated and flask_login.current_user.is_admin:
@@ -38,14 +40,12 @@ def admin_required(func):
     return wrapper
 
 def page_config(template_name : str):
-    def inner(func):
+    def inner(func : Callable):
         @functools.wraps(func)
         def wrapper(*agrs, **kwargs):
             user = flask_login.current_user if flask_login.current_user.is_authenticated else None
-            print(user)
 
             context: dict = func(*agrs, **kwargs) or {}
-            print("context:", context)
 
             if "redirect" in context:
                 return flask.redirect(context["redirect"])
@@ -56,8 +56,8 @@ def page_config(template_name : str):
                 render_template_name = template_name
 
             rendered_template = flask.render_template(
-                template_name_or_list= render_template_name,
-                user= user,
+                template_name_or_list=render_template_name,
+                user=user,
                 **context
             )
             
@@ -74,12 +74,5 @@ def page_config(template_name : str):
     return inner
 
 def get_media_path() -> str:
-    path = os.path.abspath(
-        path=os.path.join(
-            __file__,
-            "..",
-            "static", "media"
-        )
-    )
-
+    path = os.path.abspath(os.path.join(__file__, "..", "media"))
     return path
