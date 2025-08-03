@@ -1,10 +1,7 @@
 {
   "dependencies": {
-    "@types/jquery": "^3.5.32",
-    "tsc-alias": "^1.8.16",
-    "typescript": "^5.8.3"
-  },
-  "scripts": {
-    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json"
+    "frontend": "file:frontend",
+    "install": "^0.13.0",
+    "npm": "^11.5.2"
   }
 }

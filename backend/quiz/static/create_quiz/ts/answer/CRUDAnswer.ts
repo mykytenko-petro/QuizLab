@@ -1,6 +1,6 @@
-import { ajaxPostRequest } from "@ajaxUtils"
-import { createButtonElement, createFormElement } from "@DOMUtils"
-import { getSlug, MetadataDiv } from "@utils"
+import { ajaxPostRequest } from "backend/Project/static/ts/utils/ajaxUtils/index"
+import { createButtonElement, createFormElement } from "backend/Project/static/ts/utils/DOMUtils/index"
+import { getSlug, MetadataDiv } from "backend/Project/static/ts/utils/utils/index"
 
 import { QuestionPayload } from "../question/types"
 import { AnswerPayload } from "./types"

@@ -20,16 +20,21 @@ def assemble():
     )
 
     # node modules 
-    os.system("npm install")
+    os.chdir(os.path.abspath(os.path.join(__file__, "..", "..", "..", "frontend")))
+
+    os.system("npm install npm install")
 
     # typescript compiling
-    os.system("npm run build")
+    os.system("npx vite build")
 
     # dotenv
-    DOTENV_PATH = os.path.abspath(os.path.join(__file__, "..", "..", ".env"))
+    DOTENV_PATH = os.path.abspath(os.path.join(__file__,"..", "..", "..", ".env"))
 
     if os.path.exists(path= DOTENV_PATH):
         dotenv.load_dotenv(dotenv_path= DOTENV_PATH)
+
+    # set project path in console for flask migration library
+    os.chdir(os.path.abspath(os.path.join(__file__, "..", "..")))
 
     # database
     MIGRATIONS_PATH = os.path.abspath(os.path.join(__file__, '..', "migrations"))

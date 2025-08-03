@@ -92,8 +92,5 @@ ENV/
 # media
 media/
 
-# vscode
-.vscode/
-
 # node modules
 node_modules
