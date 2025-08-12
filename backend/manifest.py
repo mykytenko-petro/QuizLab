@@ -2,13 +2,18 @@ import os
 
 import dotenv
 
+def load_env():
+    DOTENV_PATH = os.path.abspath(os.path.join(__file__, "..", "..", ".env"))
+
+    if os.path.exists(DOTENV_PATH):
+        dotenv.load_dotenv(DOTENV_PATH)
 
 def assemble():
     # media
     for media_folder in ["images", "audio"]:
         os.makedirs(
             os.path.abspath(os.path.join(
-                "Project", "media", media_folder
+                __file__, "..", "Project", "media", media_folder
             )),
             exist_ok=True
         )
@@ -22,11 +27,4 @@ def assemble():
     os.chdir(os.path.abspath(os.path.join(__file__, "..")))
 
     # dotenv
-    DOTENV_PATH = os.path.abspath(os.path.join(".env"))
-
-    if os.path.exists(DOTENV_PATH):
-        dotenv.load_dotenv(DOTENV_PATH)
-
-    # database
-    os.system('alembic revision --autogenerate -m ""')
-    os.system('alembic upgrade head')
+    load_env()

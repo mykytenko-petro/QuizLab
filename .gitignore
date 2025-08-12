@@ -5,6 +5,7 @@ __pycache__/
 
 # database
 data.db
+versions/
 
 # dotenv
 .env
@@ -14,3 +15,6 @@ media/
 
 # node.js
 node_modules
+
+# editors
+.vscode

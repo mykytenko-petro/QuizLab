@@ -1,14 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
 import HomePage from "../home/home";
-import LoginPage from "../user/login/login";
+import NoPage from "./noPage";
+import { UserRoutes } from "../user";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
+
+        {UserRoutes()}
+
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
   )

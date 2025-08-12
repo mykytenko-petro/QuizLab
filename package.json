@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "frontend": "file:frontend",
-    "install": "^0.13.0",
-    "npm": "^11.5.2"
-  }
-}
