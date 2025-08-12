@@ -1,18 +1,10 @@
 import os
 
-import flask_migrate
-import flask_sqlalchemy
+import sqlalchemy
 
-from .settings import project
+from .types import BaseModel
+from user import User
 
+DATABASE = sqlalchemy.create_engine(os.environ["DB_URL"])
 
-project.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
-project.app_context().push()
-
-DATABASE = flask_sqlalchemy.SQLAlchemy(app=project)
-
-migrate = flask_migrate.Migrate(
-    app=project,
-    db=DATABASE,
-    directory=os.path.abspath(os.path.join(__file__, "..", "migrations"))
-)
+BaseModel.metadata.create_all(DATABASE)

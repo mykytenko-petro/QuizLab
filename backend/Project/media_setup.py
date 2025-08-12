@@ -1,9 +1,14 @@
-import flask
+import os
+
+import fastapi.staticfiles as staticfiles
+
+from .root import project
 
 
-mediaManagerApp = flask.Blueprint(
-    name="media",
-    import_name="Project",
-    static_folder="media",
-    static_url_path="/media"
+MEDIA_PATH = os.path.abspath(os.path.join(__file__, '..', 'media'))
+
+project.mount(
+    path='/media',
+    app=staticfiles.StaticFiles(directory=MEDIA_PATH)
 )
+

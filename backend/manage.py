@@ -1,13 +1,15 @@
-import Project
-
 def main():
     try:
-        Project.assemble()
-        Project.project.run(
-            debug=True,
-            port=2232,
-            use_reloader=False
-        )
+        from manifest import assemble
+        assemble()
+
+        import Project
+
+        Project.uvicorn_server.run()
+
+    except KeyboardInterrupt:
+        pass
+
     except Exception as error:
         print(error)
 

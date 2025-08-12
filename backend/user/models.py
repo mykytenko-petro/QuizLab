@@ -1,4 +1,3 @@
-import flask_login
 from sqlalchemy import (
     Column,
     Integer,
@@ -10,7 +9,7 @@ from sqlalchemy.orm import relationship
 from Project.types import BaseModel
 
 
-class User(BaseModel, flask_login.UserMixin):
+class User(BaseModel):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True)
