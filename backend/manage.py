@@ -1,6 +1,6 @@
 def main():
     try:
-        from manifest import assemble
+        from tools.manifest import assemble
         assemble()
 
         import Project
