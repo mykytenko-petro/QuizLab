@@ -1,3 +1,4 @@
 import fastapi
 
-user_router = fastapi.APIRouter()
+
+user_router = fastapi.APIRouter(prefix="/user")

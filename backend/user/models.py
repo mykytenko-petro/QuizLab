@@ -1,22 +1,31 @@
-from sqlalchemy import (
-    Column,
-    Integer,
-    String,
-    Boolean
+from typing import List
+
+from sqlalchemy import String
+from fastapi_users.db import SQLAlchemyBaseUserTableUUID
+from sqlalchemy.orm import (
+    Mapped,
+    mapped_column,
+    relationship
 )
-from sqlalchemy.orm import relationship
 
-from Project.types import BaseModel
+from Project.database import Base
 
 
-class User(BaseModel):
+class User(SQLAlchemyBaseUserTableUUID, Base):
     __tablename__ = "user"
 
-    id = Column(Integer, primary_key=True)
+    '''
+    SQLAlchemyBaseUserTableUUID already provides:
+        id: UUID
+        email: str
+        hashed_password: str
+        is_active: bool
+        is_superuser: bool
+        is_verified: bool
+    '''
 
-    login = Column(String(50), nullable=False)
-    email = Column(String(50), nullable=False)
-    password = Column(String(35), nullable=False)
-    is_admin = Column(Boolean, default=False, nullable=False)
+    username: Mapped[str] = mapped_column(String(35), nullable=False)
 
-    quizzes = relationship('Quiz', backref='user', cascade='all, delete-orphan')
+    # quizzes: Mapped[List["Quiz"]] = relationship(
+    #     back_populates="user", cascade="all, delete-orphan"
+    # )

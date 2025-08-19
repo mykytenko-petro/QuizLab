@@ -1,2 +1,1 @@
-export * from "./ajax"
-export * from "./general"
+export { fetchWrapper } from "./fetchWrapper";

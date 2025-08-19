@@ -1,0 +1,1 @@
+export type { IFetchWrapper } from "../types/fetchWrapper";
