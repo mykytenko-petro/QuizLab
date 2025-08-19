@@ -4,13 +4,13 @@ from collections.abc import AsyncGenerator
 
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.ext.asyncio import (
+    AsyncAttrs,
     AsyncSession,
     async_sessionmaker,
     create_async_engine
 )
 
-
-class Base(DeclarativeBase): pass
+class Base(DeclarativeBase, AsyncAttrs): pass
 
 ENGINE = create_async_engine(os.environ["DB_URL"], echo=True)
 ASYNC_SESSION_MAKER = async_sessionmaker(ENGINE, expire_on_commit=False)
