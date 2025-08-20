@@ -1,6 +1,9 @@
+import { responseProcess } from "./responseProcess";
+
 import type { IFetchWrapper } from "../types";
 
-export async function fetchWrapper(props : IFetchWrapper) : Promise<void> {
+
+export async function Wfetch(props : IFetchWrapper) : Promise<void> {
     try {
         const response = await fetch(
             props.url,
@@ -10,7 +13,8 @@ export async function fetchWrapper(props : IFetchWrapper) : Promise<void> {
             }
         )
         const data = await response.json();
-        props.func(data)
+
+        props.func(responseProcess({response: data}))
         
     } catch (error) {
         console.log("error has occurred:\n" + error)

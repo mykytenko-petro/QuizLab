@@ -1,4 +1,4 @@
-export default function LoginPage() {
+export function LoginPage() {
   return (
     <>
       <h1>2232 from login</h1>

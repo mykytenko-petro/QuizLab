@@ -20,20 +20,21 @@ async def register(
         form : Annotated[RegisterPayload, Form()],
         user_manager : UserManager = Depends(get_user_manager)
     ):
-    async with ASYNC_SESSION_MAKER() as session:
-        result = await session.execute(select(User).where(User.email == form.email)) # type: ignore
-
-        if result.scalar_one_or_none():
-            return {"error": "user is already exist"}
-
     if form.password == form.password_confirm:
+        async with ASYNC_SESSION_MAKER() as session:
+            result = await session.execute(select(User).where(User.email == form.email)) # type: ignore
+
+            if result.scalar_one_or_none():
+                return {"error": "user is already exist"}
+        
         user_data = UserCreate(
             username=form.username,
             email=form.email,
             password=form.password
         )
 
-        user: User = await user_manager.create(user_data)
-        return {"message": "succsesfully created user:"}
+        await user_manager.create(user_data)
+
+        return {"redirect": "/"}
     else:
         return {"error": "passwords don't match"}

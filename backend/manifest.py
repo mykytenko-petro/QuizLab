@@ -6,10 +6,14 @@ import dotenv
 def load_env():
     DOTENV_PATH = os.path.abspath(os.path.join(__file__, "..", "..", ".env"))
 
-    print("load .env from: ", DOTENV_PATH)
+    print("load .env from:", DOTENV_PATH)
 
     if os.path.exists(DOTENV_PATH):
         dotenv.load_dotenv(DOTENV_PATH)
+
+        print("successfully loaded .env")
+    else:
+        print("missing .env")
 
 def assemble():
     # media

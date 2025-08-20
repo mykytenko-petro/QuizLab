@@ -1,7 +1,7 @@
 import { Route } from "react-router";
 
-import LoginPage from "./login/login";
-import RegistrationPage from "./registration/components/registration";
+import { LoginPage } from "./login/login";
+import { RegistrationPage } from "./registration";
 
 export function UserRoutes() {
   return (
