@@ -1,0 +1,64 @@
+{% block title %}
+    dashboard
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+    {% block header %}
+        <div class="header">
+            <div class="quiz-lab">
+                <img src="" alt="">
+                <h1>QuizLab</h1>
+            </div>
+            <div class="profile">
+                <h1>Name</h1>
+                <img src="" alt="">
+                <button>
+                    <img src="" alt="">
+                </button>
+            </div>
+        </div>
+    {% endblock %}
+    <body>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <button>
+                <img src="" alt="">
+            </button>
+        </div>
+        <div class="fast-buttons">
+            <div>
+                <div>
+                    <input type="text" placeholder="Enter a join code">
+                    <button>
+                        <h1>Join</h1>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <button>
+                    <img src="" alt="">
+                    <p>Create Quiz</p>
+                </button>
+                <button>
+                    <img src="" alt="">
+                    <p>Statistics</p>
+                </button>
+            </div>
+        </div>
+        <div>
+            <p>random</p>
+            <div>
+                {% for quiz in quizes %}
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <p>cool category</p>
+            <div></div>
+        </div>
+    </body>
+{% endblock %}

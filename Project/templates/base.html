@@ -9,17 +9,8 @@
 </head>
 <body>
     <header>
-        <nav>
-            {% if user %}
-                <a href="/">Home</a>
-                <a href="/logout">logout</a>
-                <a href="/userpage">{{ user.login }}</a>
-            {% else %}
-                <a href="/">Home</a>
-                <a href="/registration">registration</a>
-                <a href="/login">login</a>
-            {% endif %}
-        </nav>
+        {% block header %}
+        {% endblock %}
     </header>
 
     <main>
