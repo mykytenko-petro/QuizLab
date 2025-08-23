@@ -1,6 +1,11 @@
+from sqlalchemy.orm import DeclarativeMeta
+
 from ...db import DATABASE
 
-class BaseModel(DATABASE.Model):
+
+Base: DeclarativeMeta = DATABASE.Model
+
+class BaseModel(Base):
     r"""
         custom model with useful methods
     """
