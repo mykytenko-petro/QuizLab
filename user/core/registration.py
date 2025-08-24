@@ -33,11 +33,11 @@ def render_registration():
                     subject='Confirmation code',
                     recipients=[form['email']],
                     html=flask.render_template(
-                        template_name_or_list="email_confirmation_in_mail.html",
+                        template_name_or_list="email_confirmation_mail.html",
                         confirmation_code=confirmation_code
                     )
                 )
 
-                return {"redirect": "/code_confirmation"}
+                return {"redirect": "/email_confirmation"}
             
             return {"message": message}

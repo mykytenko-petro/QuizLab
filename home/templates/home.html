@@ -11,8 +11,10 @@
 {% endblock %}
 
 {% block content %}
+    <button type="button" class="join">join</button>
     <button type="button" class="createQuiz">create quiz</button>
-    
+    <button type="button" class="statistics">statistics</button>
+
     {% if user %}
         {% for quiz in user.quizzes %}
             <div>

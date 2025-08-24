@@ -30,3 +30,6 @@ userApp.add_url_rule(
     view_func=logout,
     methods=['GET']
 )
+
+
+print("error")
