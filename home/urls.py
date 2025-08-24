@@ -1,5 +1,5 @@
 from .app import homeApp
-from .views import render_home
+from .views import render_home, render_dashboard
 
 homeApp.add_url_rule(
     rule="/",
@@ -8,6 +8,6 @@ homeApp.add_url_rule(
 
 homeApp.add_url_rule(
     rule='/dashboard',
-    view_func= render_home,
+    view_func= render_dashboard,
     methods=['GET', 'POST']
 )
