@@ -17,7 +17,7 @@
         {% for quiz in user.quizzes %}
             <div>
                 <h2>{{ quiz.name }}</h2>
-                <a href="/quiz/{{ quiz.id }}">edit</a>
+                <a href="/quiz/edit/{{ quiz.id }}">edit</a>
             </div>
         {% endfor %}
     {% endif %}

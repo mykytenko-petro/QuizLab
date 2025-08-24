@@ -1,8 +1,11 @@
-import Project
-
 def main():
     try:
-        Project.assemble()
+        from manifest import assemble
+
+        assemble()
+
+        import Project
+
         Project.project.run(
             debug=True,
             port=2232,
