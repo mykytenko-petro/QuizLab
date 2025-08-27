@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.login }}{% endblock %}
+
+{% block content %}
+    <div>
+        <div class="bio">
+            <div>
+                <div class="customProfile">
+                    <div class="avatar">
+                        <img src="/static/icons/default.png">
+                    </div>
+
+                    <div class="infoContainer">
+                        <div class="nameAndId">
+                            <h1>Имя пользователя</h1>
+                            <h1>Айды</h1>
+                        </div>
+                        <h1>Створенно квізів....</h1>
+                        <h1>Пройдено квізів....</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="yourCreations">
+
+        </div>
+    </div>
+{% endblock %}

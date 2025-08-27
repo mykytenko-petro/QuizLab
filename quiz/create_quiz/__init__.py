@@ -1,2 +1,2 @@
-from .urls import *
+from . import urls
 from .settings import createQuizApp

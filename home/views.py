@@ -1,18 +1,34 @@
-from Project.utils import page_config
-from quiz.models import Quiz
 import random
 
-@page_config("home.html")
-def render_home():
-    return None
+from werkzeug import Response
 
-@page_config("dashboard.html")
+from Project.utils import page_config
+from quiz.models import Quiz
+from flask import redirect, request
+
+
+def index() -> Response:
+    return redirect(location='/dashboard')
+
+
+@page_config(template_name="dashboard.html")
 def render_dashboard():
-    quizes = Quiz.query.all()
-    random_quizes = []
-    for count in range(5):
-        random_quizes.append(quizes[random.randint(0, len(quizes)-1)])
-    if random_quizes:
-        return {"quizes": random_quizes}
-    else:
-        return {"quizes": []}
+    quizzes = Quiz.query.all()
+    num_to_select = 5
+
+    num_to_select = min(len(quizzes), num_to_select)
+
+    random_quizes = random.sample(quizzes, k=num_to_select)
+
+    return {"quizzes": random_quizes}
+
+
+@page_config(template_name="search.html")
+def render_quiz_search():
+    search = request.args.get("search", "").strip()
+    results = []
+
+    if search:
+        results = Quiz.query.filter(Quiz.name.ilike(f"%{search}%")).all()
+    
+    return {"results": results, "search": search}

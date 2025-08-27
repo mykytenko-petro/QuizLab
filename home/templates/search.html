@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    dashboard
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/search.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="search">
+        <form method="get">
+            <input type="text" name="search" placeholder="Search" value="{{ search }}">
+            <button type="submit">
+                <img src="" alt="">
+            </button>
+        </form>
+    </div>
+    {% if search %}
+        {% if results %}
+            <ul>
+                {% for result in results %}
+                    <img src="/media/images/{{ result.image }}">
+                    <strong>{{ result.name }}</strong>
+                    <strong>{{ result.description }}</strong>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

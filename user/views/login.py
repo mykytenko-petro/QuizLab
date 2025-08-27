@@ -1,14 +1,16 @@
 import flask
 import flask_login
+from werkzeug import Response
+from werkzeug.datastructures.structures import ImmutableMultiDict
 
 from Project.utils import page_config
 from ..models import User
 
 
 @page_config(template_name="login.html")
-def render_login():
+def render_login() -> dict[str, str] | None:
     if flask.request.method == "POST":
-        form = flask.request.form
+        form: ImmutableMultiDict[str, str] = flask.request.form
         
         users_list: list[User] = User.query.all()
         for user in users_list:
@@ -23,6 +25,6 @@ def render_login():
     
         return {"message": message}
 
-def logout():
+def logout() -> Response:
     flask.session.clear()
-    return flask.redirect('/')
+    return flask.redirect(location='/')

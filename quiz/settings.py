@@ -1,6 +1,7 @@
 import flask
 
 from .create_quiz import createQuizApp
+from .take_quiz import takeQuizApp
 
 
 quizApp = flask.Blueprint(
@@ -9,4 +10,5 @@ quizApp = flask.Blueprint(
     url_prefix="/quiz"
 )
 
-quizApp.register_blueprint(createQuizApp)
+quizApp.register_blueprint(blueprint=createQuizApp)
+quizApp.register_blueprint(blueprint=takeQuizApp)

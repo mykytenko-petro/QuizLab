@@ -1,5 +1,5 @@
 from .settings import userApp
-from .core import (
+from .views import (
     render_registration,
     render_email_confirmation,
     render_login,
@@ -30,6 +30,3 @@ userApp.add_url_rule(
     view_func=logout,
     methods=['GET']
 )
-
-
-print("error")

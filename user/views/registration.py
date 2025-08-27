@@ -4,13 +4,14 @@ import flask
 
 from Project.utils import page_config
 from Project.smtp_setup import send_email
+from user.views.login import ImmutableMultiDict
 from ..models import User
 
 
-@page_config("registration.html")
-def render_registration():
+@page_config(template_name="registration.html")
+def render_registration() -> dict[str, str] | None:
     if flask.request.method == 'POST':
-        form = flask.request.form
+        form: ImmutableMultiDict[str, str] = flask.request.form
         
         if form['login']:
             if User.query.filter_by(email=form["email"]).first():
@@ -20,7 +21,7 @@ def render_registration():
                 message = 'Паролі не співпадають'       
                 
             else:
-                confirmation_code = secrets.token_hex(6)
+                confirmation_code: str = secrets.token_hex(6)
 
                 flask.session["registration_input_data"] = {
                     "login": form['login'],
