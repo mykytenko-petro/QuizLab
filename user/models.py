@@ -8,6 +8,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 
 from Project.types import BaseModel
+from quiz.take_quiz.models import quiz_session_user_assosiation
 
 
 class User(BaseModel, flask_login.UserMixin):
@@ -22,3 +23,5 @@ class User(BaseModel, flask_login.UserMixin):
 
     quizzes = relationship('Quiz', backref='user', cascade='all, delete-orphan')
     passed_quizzes = Column(Integer, nullable=True, default=0)
+
+    quiz_sessions = relationship("QuizSession", secondary=quiz_session_user_assosiation, backref="users", lazy=True)
