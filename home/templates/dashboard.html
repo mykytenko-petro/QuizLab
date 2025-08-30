@@ -68,7 +68,7 @@
             <div>
                 {% for quiz in quizzes %}
                     {{ quiz.name }}
-                    <img src="/media/images/{{ quiz.image }}">
+                    <img src="/media/images/{{ quiz.image }}" class="quiz-image">
                     
                     <a href="/quiz/view/{{ quiz.id }}">
                         <button>{{ quiz.name }}</button>

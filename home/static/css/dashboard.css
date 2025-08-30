@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     background-color: #1F2A44;
 }
 
@@ -94,7 +97,7 @@ header{
     width: 850px;
     height: 210px;
     border-radius: 20px;
-    margin-top: 15px;
+    margin-top: 35px;
 }
 
 .join-quiz {
@@ -128,6 +131,11 @@ header{
     color: white;
     font-size: 24px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: normal;
+    background-clip: padding-box;
 }
 
 .button-container {
@@ -136,10 +144,10 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1vw;
     width: 300px;
     height: 210px;
     border-radius: 20px;
+    margin-top: 35px;
 }
 
 .createQuiz {
@@ -162,4 +170,19 @@ header{
     color: white;
     font-size: 24px;
     cursor: pointer;
+    margin-top: 10px;
+}
+
+.fast-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    margin-top: 20px;
+}
+
+.quiz-image {
+    width: 200px;
+    height: 150px;
 }
