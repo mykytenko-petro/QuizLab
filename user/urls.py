@@ -3,7 +3,8 @@ from .views import (
     render_registration,
     render_email_confirmation,
     render_login,
-    logout
+    logout,
+    render_profile,
 )
 
 
@@ -29,4 +30,10 @@ userApp.add_url_rule(
     rule='/logout',
     view_func=logout,
     methods=['GET']
+)
+
+userApp.add_url_rule(
+    rule="/profile/<id>",
+    view_func=render_profile,
+    methods=['GET'] 
 )

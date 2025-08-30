@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/dashboard.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('home.static', filename='css/dashboard.css') }}"> -->
 {% endblock %}
 
 {% block scripts %}
@@ -18,13 +18,19 @@
             <img src="" alt="">
             <h1>QuizLab</h1>
         </div>
+
+    <nav>
         <div class="profile">
-            <h1>Name</h1>
+            <p>{{ user.login }}</p>
             <img src="" alt="">
-            <button>
-                <img src="" alt="">
-            </button>
+            <a href="/profile/{{ user.id }}">
+                <button>
+                    <p>Profile</p>
+                </button>
+            </a>
         </div>
+    </nav>
+
     </div>
 {% endblock %}
 

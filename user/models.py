@@ -21,3 +21,4 @@ class User(BaseModel, flask_login.UserMixin):
     is_admin = Column(Boolean, default=False, nullable=False)
 
     quizzes = relationship('Quiz', backref='user', cascade='all, delete-orphan')
+    passed_quizzes = Column(Integer, nullable=True, default=0)

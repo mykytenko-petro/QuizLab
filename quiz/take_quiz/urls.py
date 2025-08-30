@@ -2,14 +2,21 @@ import flask
 
 from .settings import takeQuizApp
 from .views import (
-    render_quiz
+    render_start_quiz,
+    render_take_quiz
+)
+
+takeQuizApp.add_url_rule(
+    rule="/view/quiz/<id>",
+    view_func=render_take_quiz,
+    methods = ["GET"]
 )
 
 
 # views
 takeQuizApp.add_url_rule(
     rule="/view/<id>",
-    view_func=render_quiz,
+    view_func=render_start_quiz
 )
 
 # api

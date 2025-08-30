@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ user.login }}{% endblock %}
+{% block title %}{{ profile.login }}{% endblock %}
 
 {% block content %}
     <div>
@@ -13,18 +13,31 @@
 
                     <div class="infoContainer">
                         <div class="nameAndId">
-                            <h1>Имя пользователя</h1>
-                            <h1>Айды</h1>
+                            <p>{{ profile.login }}</p>
+                            <p>{{ profile.id }}</p>
                         </div>
-                        <h1>Створенно квізів....</h1>
-                        <h1>Пройдено квізів....</h1>
+                        <p>Quizzes created {{ profile.quizzes | length }}</p>
+                        <p>Quizzes passed {{ profile.passed_quizzes }}</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="yourCreations">
+            <div class="categoriesContainer">
+                
+            </div>
 
+            <div class="quizContainer">
+                {% for quiz in quizzes %}
+                    {{ quiz.name }}
+                    <img src="/media/images/{{ quiz.image }}">
+                    
+                    <a href="/quiz/view/{{ quiz.id }}">
+                        <button>{{ quiz.name }}</button>
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
