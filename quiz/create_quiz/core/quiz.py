@@ -6,7 +6,8 @@ import flask_login
 
 from Project.db import DATABASE
 from Project.utils import get_media_path
-from ...models import Quiz
+from ..models import Quiz
+
 
 def create_quiz():
     quiz = Quiz()

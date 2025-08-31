@@ -3,7 +3,7 @@ import random
 from werkzeug import Response
 
 from Project.utils import page_config
-from quiz.models import Quiz
+from quiz.create_quiz.models import Quiz
 from flask import redirect, request
 
 

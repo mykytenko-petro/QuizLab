@@ -5,7 +5,8 @@ import flask
 
 from Project.db import DATABASE
 from Project.utils import get_media_path
-from ...models import Question, Answer
+from ..models import Question, Answer
+
 
 def create_answer(params):
     question = Question.query.filter_by(id=params.get("question_id", type=int)).first()
@@ -53,13 +54,13 @@ def answer_handle():
 
     match params["goal"]: 
         case "create": 
-            create_answer(params=params)
+            return create_answer(params=params)
         
         case "read":
-            read_answer(answer=answer)
+            return read_answer(answer=answer)
             
         case "update":
-            update_answer(answer=answer, json_data=json_data, file_data=file_data)
+            return update_answer(answer=answer, json_data=json_data, file_data=file_data)
         
         case "delete": 
-            delete_answer(answer=answer)
+            return delete_answer(answer=answer)

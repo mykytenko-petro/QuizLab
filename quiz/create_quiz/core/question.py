@@ -5,7 +5,8 @@ import flask
 
 from Project.db import DATABASE
 from Project.utils import get_media_path
-from ...models import Quiz, Question
+from ..models import Quiz, Question
+
 
 def create_question(params):
     quiz = Quiz.query.filter_by(id=params.get("quiz_id", type=int)).first()
