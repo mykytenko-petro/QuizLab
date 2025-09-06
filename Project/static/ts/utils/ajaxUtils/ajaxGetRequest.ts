@@ -1,6 +1,6 @@
 export function ajaxGetRequest(
     url : string,
-    func : (data : object) => null
+    func : (data : object) => void
 ) {
     console.log("url: " + url)
     // console.log("func: " + func)

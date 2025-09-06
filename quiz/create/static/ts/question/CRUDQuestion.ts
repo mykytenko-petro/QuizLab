@@ -1,4 +1,4 @@
-import { ajaxPostRequest } from "@ajaxUtils"
+import { ajaxPostRequest, ajaxGetRequest } from "@ajaxUtils"
 import { createButtonElement, createFormElement } from "@DOMUtils"
 import { redirectInApp, getSlug, MetadataDiv } from "@utils"
 
@@ -34,7 +34,7 @@ function renderQuestion(data : IQuestionPayload) {
 }
 
 export function loadQuestions() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/quiz?goal=read&id=${getSlug()}`,
         (data : IQuizPayload) => {
             const questionsDiv = document.querySelector(".questions")
@@ -75,7 +75,7 @@ export function loadQuestions() {
 
 
 export function createQuestion() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/question?goal=create&quiz_id=${getSlug()}`,
         (data : IQuestionPayload) => {
             redirectInApp(`/quiz/question/${data.id}`)
@@ -84,7 +84,7 @@ export function createQuestion() {
 }
 
 export function deleteQuestion(id : number) {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/question?goal=delete&id=${id}`,
         () => {
             loadQuestions()
@@ -93,7 +93,7 @@ export function deleteQuestion(id : number) {
 }
 
 export function loadQuestion() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/question?goal=read&id=${getSlug()}`,
         (data : object) => {
             const question_data = data["question"] as IQuestionPayload

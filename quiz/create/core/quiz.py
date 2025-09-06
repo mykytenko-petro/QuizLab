@@ -54,7 +54,7 @@ def delete_quiz(quiz : Quiz):
     
 def quiz_handle():
     params = flask.request.args
-    json_data = json.loads(flask.request.form["data"])
+    json_data = json.loads(flask.request.form.get("data") or r"{}") 
     file_data = flask.request.files
 
     if "id" in params:

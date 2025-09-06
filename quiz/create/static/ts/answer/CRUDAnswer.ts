@@ -1,4 +1,4 @@
-import { ajaxPostRequest } from "@ajaxUtils"
+import { ajaxPostRequest, ajaxGetRequest } from "@ajaxUtils"
 import { createButtonElement, createFormElement } from "@DOMUtils"
 import { getSlug, MetadataDiv } from "@utils"
 
@@ -38,7 +38,7 @@ function loadAnswer(data : IAnswerPayload) {
 }
 
 export function loadAnswers() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/question?goal=read&id=${getSlug()}`,
         (data : IQuestionPayload) => {
             const answersDiv = document.querySelector(".answers") as HTMLDivElement
@@ -84,7 +84,7 @@ export function loadAnswers() {
 
 
 export function createAnswer() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/answer?goal=create&question_id=${getSlug()}`,
         () => {
             loadAnswers()
@@ -93,7 +93,7 @@ export function createAnswer() {
 }
 
 export function deleteAnswer(id : number) {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/answer?goal=delete&id=${id}`,
         () => {
             loadAnswers()

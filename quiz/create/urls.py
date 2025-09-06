@@ -35,19 +35,19 @@ API = flask.Blueprint(
 API.add_url_rule(
     rule='/quiz',
     view_func=quiz_handle,
-    methods=['POST']
+    methods=['GET', 'POST']
 )
 
 API.add_url_rule(
     rule='/question',
     view_func=question_handle,
-    methods=['POST']
+    methods=['GET', 'POST']
 )
 
 API.add_url_rule(
     rule='/answer',
     view_func=answer_handle,
-    methods=['POST']
+    methods=['GET', 'POST']
 )
 
 createQuizApp.register_blueprint(API)

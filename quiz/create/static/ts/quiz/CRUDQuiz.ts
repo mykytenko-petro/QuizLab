@@ -1,4 +1,4 @@
-import { ajaxPostRequest } from "@ajaxUtils"
+import { ajaxPostRequest, ajaxGetRequest } from "@ajaxUtils"
 import { createButtonElement, createFormElement } from "@DOMUtils"
 import { redirectInApp, getSlug, MetadataDiv } from "@utils"
 
@@ -41,7 +41,7 @@ function renderQuiz(data : IQuizPayload) {
 
 
 export function loadQuiz() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/quiz?goal=read&id=${getSlug()}`,
         (data) => {
             renderQuiz(data["quiz"] as IQuizPayload)
@@ -50,7 +50,7 @@ export function loadQuiz() {
 }
 
 export function createQuiz() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         "/quiz/api/quiz?goal=create",
         (data : IQuizPayload) => {
             redirectInApp(`/quiz/edit/${data.id}`)
@@ -59,7 +59,7 @@ export function createQuiz() {
 }
 
 export function deleteQuiz() {
-    ajaxPostRequest(
+    ajaxGetRequest(
         `/quiz/api/quiz?goal=delete&id=${getSlug()}`,
         () => {
             redirectInApp("/")
