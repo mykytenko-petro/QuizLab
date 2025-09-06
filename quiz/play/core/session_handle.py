@@ -1,5 +1,5 @@
-from ...create_quiz.core.question import read_question
-from ...create_quiz.models import Quiz
+from ...create.core.question import read_question
+from ...create.models import Quiz
 # from ..models import QuizSession
 
 

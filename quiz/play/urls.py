@@ -1,6 +1,6 @@
 import flask
 
-from .settings import takeQuizApp
+from .settings import playQuizApp
 from .views import (
     render_start_quiz,
     render_take_quiz
@@ -9,12 +9,12 @@ from .views import (
 
 
 # views
-takeQuizApp.add_url_rule(
+playQuizApp.add_url_rule(
     rule="/view/<id>",
     view_func=render_start_quiz
 )
 
-takeQuizApp.add_url_rule(
+playQuizApp.add_url_rule(
     rule="/play/<id>",
     view_func=render_take_quiz,
     methods = ["GET", "POST"]
@@ -33,4 +33,4 @@ API.add_url_rule(
     methods = ["GET", "POST"]
 )
 
-takeQuizApp.register_blueprint(blueprint=API)
+playQuizApp.register_blueprint(blueprint=API)

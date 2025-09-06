@@ -1,7 +1,8 @@
 import flask
 
-from .create_quiz import createQuizApp
-from .take_quiz import takeQuizApp
+from .create import createQuizApp
+from .play import playQuizApp
+from .sessions import sessionQuizApp
 
 
 quizApp = flask.Blueprint(
@@ -11,4 +12,5 @@ quizApp = flask.Blueprint(
 )
 
 quizApp.register_blueprint(blueprint=createQuizApp)
-quizApp.register_blueprint(blueprint=takeQuizApp)
+quizApp.register_blueprint(blueprint=playQuizApp)
+quizApp.register_blueprint(blueprint=sessionQuizApp)

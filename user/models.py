@@ -8,7 +8,6 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 
 from Project.types import BaseModel
-# from quiz.take_quiz.models import quiz_session_user_assosiation
 
 
 class User(BaseModel, flask_login.UserMixin):
@@ -16,12 +15,18 @@ class User(BaseModel, flask_login.UserMixin):
 
     id = Column(Integer, primary_key=True)
 
-    login = Column(String(50), nullable=False)
-    email = Column(String(50), nullable=False)
-    password = Column(String(35), nullable=False)
-    is_admin = Column(Boolean, default=False, nullable=False)
+    login = Column(String(50))
+    email = Column(String(50))
+    password = Column(String(35))
+    is_admin = Column(Boolean, default=False)
 
-    quizzes = relationship('Quiz', backref='user', cascade='all, delete-orphan')
-    passed_quizzes = Column(Integer, nullable=True, default=0)
+    quizzes = relationship(
+        argument='Quiz',
+        backref='user',
+        cascade='all, delete-orphan'
+    )
 
-    # quiz_sessions = relationship("QuizSession", secondary=quiz_session_user_assosiation, backref="users", lazy=True)
+    user_answers = relationship(
+        argument='UserAnswers',
+        backref='user'
+    )

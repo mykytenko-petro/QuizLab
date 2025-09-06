@@ -1,5 +1,5 @@
 from Project.utils import page_config
-from ..create_quiz.models import Quiz
+from ..create.models import Quiz
 from user.models import User
 
 
