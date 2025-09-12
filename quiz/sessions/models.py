@@ -1,6 +1,7 @@
 from sqlalchemy import (
     Column,
     Integer,
+    Boolean,
     ForeignKey,
 )
 from sqlalchemy.orm import relationship
@@ -38,6 +39,11 @@ class QuizSession(BaseModel):
         primary_key=True
     )
     quiz_id = Column(Integer)
+
+    is_group = Column(
+        Boolean,
+        default=False
+    )
 
     user_answers = relationship(
         argument='UserAnswers',

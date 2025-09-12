@@ -7,7 +7,6 @@ from .views import (
 )
 
 
-
 # views
 playQuizApp.add_url_rule(
     rule="/view/<id>",
@@ -17,20 +16,14 @@ playQuizApp.add_url_rule(
 playQuizApp.add_url_rule(
     rule="/play/<id>",
     view_func=render_take_quiz,
-    methods = ["GET", "POST"]
+    methods=["GET", "POST"]
 )
 
 # api
 API = flask.Blueprint(
     name="takeQuizAPI",
     import_name=__file__,
-    url_prefix="/api/take"
-)
-
-API.add_url_rule(
-    rule="/get_quiz_data",
-    view_func=render_take_quiz,
-    methods = ["GET", "POST"]
+    url_prefix="/api"
 )
 
 playQuizApp.register_blueprint(blueprint=API)

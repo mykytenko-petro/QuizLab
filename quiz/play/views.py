@@ -3,7 +3,7 @@ from ..create.models import Quiz
 from user.models import User
 
 
-@page_config("start_quiz.html")
+@page_config("view_quiz.html")
 def render_start_quiz(id):
     quiz = Quiz.query.filter_by(id=id).first()
     creator_name = User.query.filter_by(id=quiz.owner_id).first()

@@ -3,11 +3,11 @@
 {% block title %}Solving quiz {{ quiz.name }}{% endblock %}
 
 {% block links %}
-    <link rel="stylesheet" href="{{ url_for('quizApp.takeQuizApp.static', filename='css/quiz_view.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('quizApp.playQuizApp.static', filename='css/quiz_view.css') }}"> -->
 {% endblock %}
 
 {% block scripts %}
-    
+    <script type="module" src="/js/quiz/play/static/ts/create_session.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -27,15 +27,14 @@
             <img src="" alt="">
             <h1 class="quiz-name">{{ quiz.name }}</h1>
             <div class="buttons">
-                <a href="/../../quiz/view/quiz/{{ quiz.id }}">
-                    <button>
-                        play
-                    </button>
-                </a>
+                <button class="play">
+                    play
+                </button>
                 
                 <button>
                     create live room
                 </button>
+
                 <button>
                     modify     
                 </button>
