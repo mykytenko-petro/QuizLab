@@ -13,23 +13,17 @@
 {% endblock %}
 
 {% block header %}
-    <div class="header">
-        <div class="quiz-lab">
-            <img src="/static/icons/logo.svg">
-        </div>
-
-    <nav>
-        <div class="profile">
-            <p>{{ user.login }}</p>
-            <img src="">
-            <a href="/profile/{{ user.id }}">
-                <button>
-                    <p>Profile</p>
-                </button>
-            </a>
-        </div>
-    </nav>
-
+    <div class="quiz-lab">
+        <img src="/static/icons/logo.svg">
+    </div>
+    <div class="profile">
+        <p>{{ user.login }}</p>
+        <img src="">
+        <a href="/profile/{{ user.id }}">
+            <button>
+                <p>Profile</p>
+            </button>
+        </a>
     </div>
 {% endblock %}
 
